@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  rust_dev_environment:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    # Run as root
+    user: root
+    volumes:
+      # Named volumes for Cargo cache
+      - cargo_registry:/usr/local/cargo/registry
+      - cargo_git:/usr/local/cargo/git
+      # Mount the project root
+      - .:/workspace:Z
+    # Set working directory
+    working_dir: /workspace
+    # Keep container running
+    command: sleep infinity
+
+volumes:
+  cargo_registry:
+    name: cargo_registry
+  cargo_git:
+    name: cargo_git

@@ -8,4 +8,4 @@ description = "A template for creating documents accordingly to ABNT."
 repository = "https://github.com/gabdumal/abntypst"
 
 [tool.utpm]
-exclude = [".git", ".vscode", "scripts"]
+exclude = [".git", ".vscode", "examples", "scripts"]

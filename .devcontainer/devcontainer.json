@@ -1,0 +1,24 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "Gruntfuggly.todo-tree",
+        "mhutchie.git-graph",
+        "myriad-dreamin.tinymist",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "dockerComposeFile": "../compose.yml",
+  "name": "abntypst",
+  "postCreateCommand": "utpm workspace link && typst --version && utpm --version",
+  // Connect as root (matches compose user)
+  "remoteUser": "root",
+  "service": "rust_dev_environment",
+  // Workspace folder inside container
+  "workspaceFolder": "/workspace"
+}
