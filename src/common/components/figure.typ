@@ -16,8 +16,6 @@
   set text(
     size: font_size_for_common_text,
   )
-  // NBR 14724:2024 5.8
-  // The caption of a figure should have the same leading and spacing as the common text
   set par(
     leading: leading_for_common_text,
     spacing: spacing_for_common_text,
@@ -46,10 +44,6 @@
     above: simple_spacing_for_smaller_text,
     below: simple_spacing_for_smaller_text,
   )[
-    #set par(
-      leading: simple_leading_for_smaller_text,
-      spacing: simple_spacing_for_smaller_text,
-    )
     #information_footer(note: note, source: source)
   ]
 }

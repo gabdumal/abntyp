@@ -46,6 +46,7 @@
 //
 // Spacing of 1 must be used for bibliography. NBR 6023:2025 6.3.
 #let spacing_for_bibliography = font_size_for_common_text * spacing_of_one * 2
+//
 // Spacing of 1 must be used for: quotations with more than 3 lines, footnotes, nature, references and information of figures and tables. We interpret that nature should also use this leading.
 #let simple_spacing_for_smaller_text = font_size_for_smaller_text * spacing_of_one
 
@@ -67,5 +68,6 @@
 //
 // Leading of 1 must be used for bibliography. NBR 6023:2025 6.3.
 #let leading_for_bibliography = font_size_for_common_text * leading_of_one
+//
 // Leading of 1 must be used for: quotations with more than 3 lines, footnotes, nature, references and information of figures and tables. We interpret that nature should also use this leading.
 #let simple_leading_for_smaller_text = font_size_for_smaller_text * leading_of_one

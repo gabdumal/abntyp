@@ -145,14 +145,14 @@
       - [x] Em início de capítulo
     - [x] 4.2.1.7. Resumo na língua vernácula (obrigatório) — NBR 6028
     - [x] 4.2.1.8. Resumo em língua estrangeira (obrigatório) — NBR 6028
-    - [p] 4.2.1.9. Lista de ilustrações (opcional)
-      - [n] Separar numeração da legenda com travessão
-    - [p] 4.2.1.10. Lista de tabelas (opcional)
-      - [n] Separar numeração da legenda com travessão
+    - [x] 4.2.1.9. Lista de ilustrações (opcional)
+      - [x] Separar numeração da legenda com travessão
+    - [x] 4.2.1.10. Lista de tabelas (opcional)
+      - [x] Separar numeração da legenda com travessão
     - [x] 4.2.1.11. Lista de abreviaturas e siglas (opcional)
     - [x] 4.2.1.12. Lista de símbolos (opcional)
     - [x] 4.2.1.13. Sumário (obrigatório) — NBR 6027
-  - [p] 4.2.2. Elementos textuais
+  - [x] 4.2.2. Elementos textuais
   - [p] 4.2.3. Elementos pós-textuais
     - [x] 4.2.2.1. Referências (obrigatório) — NBR 6023
     - [x] 4.2.2.2. Glossário (opcional)

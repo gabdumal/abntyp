@@ -1,14 +1,14 @@
-#import "./common/components/bibliography.typ": format_bibliography
-#import "./common/components/footnote.typ": format_footnote_entry
-#import "./common/components/heading.typ": format_heading
-#import "./common/components/note.typ": set_default_notes
-#import "./common/components/page.typ": (
+#import "./components/bibliography.typ": format_bibliography
+#import "./components/footnote.typ": format_footnote_entry
+#import "./components/heading.typ": format_heading
+#import "./components/note.typ": set_default_notes
+#import "./components/page.typ": (
   consider_only_odd_pages as consider_only_odd_pages_state, format_header, should_count_this_page,
   should_number_this_page,
 )
-#import "./common/components/quote.typ": format_quote
-#import "common/packages.typ": drafting, subpar
-#import "./common/style/style.typ": (
+#import "./components/quote.typ": format_quote
+#import "./packages.typ": drafting, subpar
+#import "./style/style.typ": (
   font_family_math, font_family_mono, font_family_sans, font_family_serif, font_size_for_common_text,
   font_size_for_smaller_text, leading_for_common_text, margin_bottom, margin_end, margin_start, margin_top, paper_size,
   simple_leading_for_smaller_text, simple_spacing_for_smaller_text, spacing_for_common_text,
@@ -16,9 +16,9 @@
 
 #let template(
   doc,
-  number_pages: false,
   // Whether to  print content on the back of pages — required.
   consider_only_odd_pages: true,
+  number_pages: false,
 ) = {
   consider_only_odd_pages_state.update(consider_only_odd_pages)
 
@@ -78,13 +78,6 @@
   // Secondary (and following) headings should be separated by a dot after the number
   set heading(numbering: "1.1")
 
-  // CDC UFJF 2023
-  show heading.where(level: 1): set heading(supplement: [Capítulo])
-  show heading.where(level: 2): set heading(supplement: [Seção])
-  show heading.where(level: 3): set heading(supplement: [Subseção])
-  show heading.where(level: 4): set heading(supplement: [Subsubseção])
-  show heading.where(level: 5): set heading(supplement: [Subsubsubseção])
-
   // ### Format. Formatação.
   show heading: it => {
     format_heading(
@@ -128,7 +121,7 @@
   // NBR 6023:2025 6, NBR 14724:2024 4.2.3.1
   set bibliography(
     // The bibliography should be formatted according to the ABNT style
-    style: "./common/style/bibliography_style.csl",
+    style: "./style/bibliography_style.csl",
     title: "Referências",
   )
   show bibliography: it => {
