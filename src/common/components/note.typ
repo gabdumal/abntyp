@@ -106,8 +106,12 @@
 #let inline_note = drafting.inline-note.with(..default_arguments_of_note())
 #let margin_note = drafting.margin-note.with(..default_arguments_of_note())
 
-#let prefixed_inline_note = (prefix: none) => drafting.inline-note.with(..default_arguments_of_note(prefix: prefix))
-#let prefixed_margin_note = (prefix: none) => drafting.margin-note.with(..default_arguments_of_note(prefix: prefix))
+#let create_prefixed_inline_note = (prefix: none) => drafting.inline-note.with(
+  ..default_arguments_of_note(prefix: prefix),
+)
+#let create_prefixed_margin_note = (prefix: none) => drafting.margin-note.with(
+  ..default_arguments_of_note(prefix: prefix),
+)
 
 #let create_prefixed_margin_or_inline_note = (
   arguments: (:),
@@ -116,14 +120,14 @@
   it,
 ) => {
   if (margin) {
-    prefixed_margin_note(
+    create_prefixed_margin_note(
       prefix: prefix,
     )(
       ..arguments,
       it,
     )
   } else {
-    prefixed_inline_note(
+    create_prefixed_inline_note(
       prefix: prefix,
     )(
       ..arguments,
@@ -150,79 +154,108 @@
   )
 }
 
-#let todo_note = (
-  margin: false,
+#let prefix_content = (
+  prefix: none,
   it,
 ) => {
-  let color = oklch(91.95%, 0.117, 93.14deg)
+  if (prefix != none) {
+    (
+      body: it + sym.space + sym.at + sym.space + prefix.body,
+      color: prefix.color,
+    )
+  } else {
+    (body: it)
+  }
+}
+
+#let create_status_note = (
+  arguments: (:),
+  color: color_of_fill_of_notes,
+  margin: false,
+  prefix_text: text(lang: "en", "NOTE"),
+  prefix: none,
+  it,
+) => {
+  let arguments_keys = arguments.keys()
+  if (not arguments_keys.contains("fill")) {
+    arguments.fill = color
+  }
+  if (not arguments_keys.contains("stroke")) {
+    arguments.stroke = color.darken(15%)
+  }
   note_with_prefix(
-    arguments: (
-      fill: color,
-      stroke: color.darken(15%),
-    ),
+    arguments: arguments,
     margin: margin,
-    prefix: (body: "TODO"),
+    prefix: prefix_content(
+      prefix: prefix,
+      prefix_text,
+    ),
+    it,
+  )
+}
+
+#let todo_note = (
+  arguments: (:),
+  margin: false,
+  prefix: none,
+  it,
+) => {
+  create_status_note(
+    arguments: arguments,
+    color: oklch(91.95%, 0.117, 93.14deg),
+    margin: margin,
+    prefix_text: text(lang: "en", "TODO"),
+    prefix: prefix,
     it,
   )
 }
 
 #let progress_note = (
+  arguments: (:),
   margin: false,
+  prefix: none,
   it,
 ) => {
-  let color = oklch(89.63%, 0.147, 121.76deg)
-  note_with_prefix(
-    arguments: (
-      fill: color,
-      stroke: color.darken(15%),
-    ),
+  create_status_note(
+    arguments: arguments,
+    color: oklch(89.63%, 0.147, 121.76deg),
     margin: margin,
-    prefix: (body: "PROG"),
+    prefix_text: text(lang: "en", "PROG"),
+    prefix: prefix,
     it,
   )
 }
 
 #let done_note = (
+  arguments: (:),
   margin: false,
+  prefix: none,
   it,
 ) => {
-  let color = oklch(83.99%, 0.084, 247.8deg)
-  note_with_prefix(
-    arguments: (
-      fill: color,
-      stroke: color.darken(15%),
-    ),
+  create_status_note(
+    arguments: arguments,
+    color: oklch(83.99%, 0.084, 247.8deg),
     margin: margin,
-    prefix: (body: "DONE"),
+    prefix_text: text(lang: "en", "DONE"),
+    prefix: prefix,
     it,
   )
 }
 
-#let note_from_person = (
-  author: "author",
-  color: none,
+#let prefixed_note = (
+  arguments: (:),
   margin: false,
+  note: note_with_prefix,
+  prefix: (
+    body: none,
+    color: none,
+  ),
   it,
 ) => {
-  let stroke = stroke(
-    paint: color,
+  note(
+    arguments: arguments,
+    margin: margin,
+    prefix: prefix,
+    it,
   )
-  let content = {
-    text(
-      weight: "bold",
-      [#author: ],
-    )
-    it
-  }
-  if margin == true {
-    margin_note(
-      stroke: stroke,
-      content,
-    )
-  } else {
-    inline_note(
-      stroke: stroke,
-      content,
-    )
-  }
 }
