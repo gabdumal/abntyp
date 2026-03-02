@@ -1,7 +1,7 @@
 // # Note. Nota.
 
 #import "../packages.typ": drafting
-#import "../style/style.typ": font_family_sans
+#import "../style/style.typ": font_family_sans, simple_spacing_for_smaller_text
 
 #drafting.set-margin-note-defaults(
   stroke: none,
@@ -11,13 +11,33 @@
 #let paint_of_stroke_of_notes = oklch(80.78%, 0, 0deg)
 #let thickness_of_stroke_of_notes = 1.5pt
 
-#let block_of_note(
-  stroke: none,
-  fill: none,
+#let box_of_prefix = (
+  default_fill: color_of_fill_of_notes,
+  default_stroke: paint_of_stroke_of_notes,
   prefix: (
     body: none,
     color: none,
   ),
+) => {
+  set text(weight: "bold")
+  box(
+    fill: if (
+      prefix.keys().contains("color")
+    ) {
+      prefix.color
+    } else {
+      default_fill.mix(color.luma(95%))
+    },
+    inset: 6pt,
+    stroke: default_stroke,
+    prefix.body,
+  )
+}
+
+#let block_of_note(
+  fill: none,
+  prefixes: none,
+  stroke: none,
   width: auto,
   it,
 ) = {
@@ -35,20 +55,21 @@
 
     grid(
       rows: 2,
-
-      if (prefix != none) {
-        block(
-          fill: if (
-            prefix.keys().contains("color")
-          ) {
-            prefix.color
-          } else {
-            fill.mix(color.luma(95%))
-          },
-          inset: 6pt,
-          stroke: stroke,
-          prefix.body,
+      if (prefixes != none) {
+        // Converts a prefix dictionary into an array of a single element, in case the user has inputted the prefixes incorrectly as not an array.
+        if (type(prefixes) == dictionary) {
+          prefixes = (prefixes,)
+        }
+        set par(
+          spacing: simple_spacing_for_smaller_text,
         )
+        for prefix in prefixes {
+          box_of_prefix(
+            default_fill: fill,
+            default_stroke: stroke,
+            prefix: prefix,
+          )
+        }
       },
 
       block(
@@ -82,7 +103,7 @@
 }
 
 #let default_arguments_of_note = (
-  prefix: none,
+  prefixes: none,
 ) => (
   fill: color_of_fill_of_notes,
   rect: (
@@ -92,7 +113,7 @@
     it,
   ) => block_of_note(
     fill: fill,
-    prefix: prefix,
+    prefixes: prefixes,
     stroke: handle_stroke(stroke),
     width: width,
     it,
@@ -105,65 +126,33 @@
 #let inline_note = drafting.inline-note.with(..default_arguments_of_note())
 #let margin_note = drafting.margin-note.with(..default_arguments_of_note())
 
-#let create_prefixed_inline_note = (prefix: none) => drafting.inline-note.with(
-  ..default_arguments_of_note(prefix: prefix),
+#let create_prefixed_inline_note = (prefixes: none) => drafting.inline-note.with(
+  ..default_arguments_of_note(prefixes: prefixes),
 )
-#let create_prefixed_margin_note = (prefix: none) => drafting.margin-note.with(
-  ..default_arguments_of_note(prefix: prefix),
+#let create_prefixed_margin_note = (prefixes: none) => drafting.margin-note.with(
+  ..default_arguments_of_note(prefixes: prefixes),
 )
 
 #let create_prefixed_margin_or_inline_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   if (margin) {
     create_prefixed_margin_note(
-      prefix: prefix,
+      prefixes: prefixes,
     )(
       ..arguments,
       it,
     )
   } else {
     create_prefixed_inline_note(
-      prefix: prefix,
+      prefixes: prefixes,
     )(
       ..arguments,
       it,
     )
-  }
-}
-
-#let note_with_prefix = (
-  arguments: (:),
-  margin: false,
-  prefix: none,
-  it,
-) => {
-  let arguments = (
-    ..arguments,
-    prefix: prefix,
-  )
-  create_prefixed_margin_or_inline_note(
-    arguments: arguments,
-    margin: margin,
-    prefix: prefix,
-    it,
-  )
-}
-
-#let prefix_content = (
-  prefix: none,
-  it,
-) => {
-  if (prefix != none) {
-    (
-      body: it + sym.space + sym.at + sym.space + prefix.body,
-      color: prefix.color,
-    )
-  } else {
-    (body: it)
   }
 }
 
@@ -171,8 +160,8 @@
   arguments: (:),
   color: color_of_fill_of_notes,
   margin: false,
-  prefix_text: text(lang: "en", "NOTE"),
-  prefix: none,
+  prefixes: none,
+  status: "NOTA",
   it,
 ) => {
   let arguments_keys = arguments.keys()
@@ -182,12 +171,15 @@
   if (not arguments_keys.contains("stroke")) {
     arguments.stroke = color.darken(15%)
   }
-  note_with_prefix(
+
+  let prefix_of_status = (body: status)
+
+  create_prefixed_margin_or_inline_note(
     arguments: arguments,
     margin: margin,
-    prefix: prefix_content(
-      prefix: prefix,
-      prefix_text,
+    prefixes: (
+      ..prefixes,
+      prefix_of_status,
     ),
     it,
   )
@@ -196,15 +188,15 @@
 #let todo_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   create_status_note(
     arguments: arguments,
     color: oklch(91.95%, 0.117, 93.14deg),
     margin: margin,
-    prefix_text: text(lang: "en", "AFAZER"),
-    prefix: prefix,
+    status: "AFAZER",
+    prefixes: prefixes,
     it,
   )
 }
@@ -212,15 +204,15 @@
 #let progress_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   create_status_note(
     arguments: arguments,
     color: oklch(90.73%, 0.142, 115.79deg),
     margin: margin,
-    prefix_text: text(lang: "en", "PROGRESSO"),
-    prefix: prefix,
+    status: "PROGRESSO",
+    prefixes: prefixes,
     it,
   )
 }
@@ -228,15 +220,15 @@
 #let done_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   create_status_note(
     arguments: arguments,
-    color: oklch(86.01%, 0.133, 160.73deg),
+    color: oklch(85.66%, 0.082, 235.93deg),
     margin: margin,
-    prefix_text: text(lang: "en", "FEITO"),
-    prefix: prefix,
+    status: "FEITO",
+    prefixes: prefixes,
     it,
   )
 }
@@ -244,15 +236,15 @@
 #let open_discussion_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   create_status_note(
     arguments: arguments,
-    color: oklch(83.99%, 0.084, 247.8deg),
+    color: oklch(78.14%, 0.117, 248.13deg),
     margin: margin,
-    prefix_text: text(lang: "en", "ABERTO"),
-    prefix: prefix,
+    status: "ABERTO",
+    prefixes: prefixes,
     it,
   )
 }
@@ -260,15 +252,15 @@
 #let closed_discussion_note = (
   arguments: (:),
   margin: false,
-  prefix: none,
+  prefixes: none,
   it,
 ) => {
   create_status_note(
     arguments: arguments,
-    color: oklch(79.24%, 0.035, 246.88deg),
+    color: oklch(78.14%, 0.05, 248.13deg),
     margin: margin,
-    prefix_text: text(lang: "en", "FECHADO"),
-    prefix: prefix,
+    status: "FECHADO",
+    prefixes: prefixes,
     it,
   )
 }
@@ -276,17 +268,14 @@
 #let prefixed_note = (
   arguments: (:),
   margin: false,
-  note: note_with_prefix,
-  prefix: (
-    body: none,
-    color: none,
-  ),
+  note: create_prefixed_margin_or_inline_note,
+  prefixes: none,
   it,
 ) => {
   note(
     arguments: arguments,
     margin: margin,
-    prefix: prefix,
+    prefixes: prefixes,
     it,
   )
 }
