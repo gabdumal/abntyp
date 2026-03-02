@@ -130,15 +130,6 @@
     format_footnote_entry(it)
   }
 
-  // ## Figures. Figuras.
-  // NBR 14724:2024 5.8
-  set figure.caption(
-    // The caption of a figure should be on top of the figure
-    // The indicator and numbering of the figure should be separated by a em-dash from the following caption text
-    position: top,
-    separator: [ #sym.dash.em ],
-  )
-
   // ## Bibliography. Referências.
   // NBR 6023:2025 6, NBR 14724:2024 4.2.3.1
   set bibliography(

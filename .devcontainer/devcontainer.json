@@ -4,6 +4,7 @@
       "extensions": [
         "esbenp.prettier-vscode",
         "Gruntfuggly.todo-tree",
+        "James-Yu.latex-workshop",
         "mhutchie.git-graph",
         "myriad-dreamin.tinymist",
         "redhat.vscode-yaml",

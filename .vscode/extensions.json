@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree",
+    "james-yu.latex-workshop",
+    "mhutchie.git-graph",
+    "myriad-dreamin.tinymist",
+    "redhat.vscode-yaml",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    "streetsidesoftware.code-spell-checker",
+    "tamasfe.even-better-toml"
+  ]
+}

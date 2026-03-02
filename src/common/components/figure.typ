@@ -9,7 +9,7 @@
 
 #let format_caption_of_figure(
   width: auto,
-  caption,
+  it,
 ) = {
   // NBR 14724:2024 5.8
   // The caption of a figure should be in the same font size as the common text
@@ -20,7 +20,9 @@
     leading: leading_for_common_text,
     spacing: spacing_for_common_text,
   )
-  caption
+
+  // The indicator and numbering of the figure should be separated by a em-dash from the following caption text.
+  [#it.supplement #it.counter.display() #sym.dash.em #it.body]
 }
 
 #let format_information_of_figure(
@@ -73,39 +75,47 @@
   sticky: false,
   it,
 ) = {
-  layout(size => {
-    let width_of_figure_body = measure(
-      width: size.width,
-      it.body,
-    ).width
+  layout(
+    size => {
+      let width_of_figure_body = measure(
+        width: size.width,
+        it.body,
+      ).width
 
-    block(
-      breakable: true,
-      sticky: sticky,
-      width: 100%,
-    )[
-      #block(
-        sticky: true,
-        width: width_of_figure_body,
-        below: spacing_for_common_text,
-        format_caption_of_figure(it.caption),
-      )
-      #show figure: it => {
-        align(
-          bottom,
-          format_figure(it),
-        )
-      }
-      #it.body
-      #if include_information {
-        include_information_of_figure(
-          source: source,
-          note: note,
+      block(
+        breakable: true,
+        sticky: sticky,
+        width: 100%,
+      )[
+        // The caption of a figure should be on top of the figure.
+        #block(
+          sticky: true,
           width: width_of_figure_body,
+          below: spacing_for_common_text,
+          format_caption_of_figure(
+            it.caption,
+          ),
         )
-      }
-    ]
-  })
+
+        #show figure: it => {
+          align(
+            bottom,
+            format_figure(it),
+          )
+        }
+
+        #it.body
+
+        #if include_information {
+          include_information_of_figure(
+            source: source,
+            note: note,
+            width: width_of_figure_body,
+          )
+        }
+      ]
+    },
+  )
 }
 
 #let describe_figure(
@@ -119,15 +129,17 @@
   set grid(gutter: spacing_for_common_text)
 
   show figure: it => {
+    let formatted_figure = format_figure(
+      include_information: true,
+      note: note,
+      source: source,
+      sticky: sticky,
+      it,
+    )
+
     set block(breakable: true)
     if placement == none {
-      format_figure(
-        include_information: true,
-        note: note,
-        source: source,
-        sticky: sticky,
-        it,
-      )
+      formatted_figure
     } else {
       let alignment = if (
         placement == auto
@@ -144,12 +156,7 @@
         clearance: spacing_for_common_text,
         float: true,
         alignment,
-        format_figure(
-          include_information: true,
-          note: note,
-          source: source,
-          it,
-        ),
+        formatted_figure,
       )
     }
   }
