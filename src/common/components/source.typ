@@ -2,7 +2,7 @@
 // NBR 14724:2024 5.8, NBR 14724:2024 5.9
 
 // CDC UFJF 2023
-// #let current_year = state("current_year", "Ano")
+// #let current_year = state("tamandua_current_year", "Ano")
 
 #let print_source_for_content_created_by_authors(
   start_with_uppercase: false,

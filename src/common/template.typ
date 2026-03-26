@@ -123,7 +123,6 @@
       it
     }
 
-    // Cross-references must be displayed in lowercase.
     if (it.element != none) {
       let element = it.element
       let function = element.func()
@@ -131,7 +130,8 @@
         let fields = element.fields()
         let kind = if (fields.keys().contains("kind")) { fields.kind } else { none }
         if (kind != "glossarium_entry") {
-          return lower(content)
+          // TODO: Cross-references must be displayed in lowercase.
+          return (content)
         }
       }
     }
@@ -196,7 +196,7 @@
   set bibliography(
     // The bibliography should be formatted according to the ABNT style
     style: "./style/bibliography_style.csl",
-    title: "Referências",
+    title: none,
   )
   show bibliography: it => {
     format_bibliography(it)

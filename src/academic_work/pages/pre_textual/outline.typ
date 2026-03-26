@@ -37,7 +37,9 @@
             prefix = [ANEXO #prefix ---]
           }
 
-          let inner = if capitalize { upper(it.inner()) } else { it.inner() }
+          let inner = if capitalize { upper(it.inner()) } else {
+            it.inner()
+          }
 
           // NBR 14724:2024 5.2.2.
           // Headings must have a blank space of 1.5 above and below.

@@ -3,7 +3,9 @@
 
 #import "../../../common/components/advisors.typ": get_advisor_role
 #import "../../../common/components/heading.typ": not_start_on_new_page
-#import "../../../common/components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
+#import "../../../common/components/page.typ": (
+  consider_only_odd_pages, not_count_page, not_number_page, quantity_of_counted_pages,
+)
 #import "../../../common/components/people.typ": print_people, print_person
 #import "../../../common/components/title.typ": print_title
 #import "../../../common/style/style.typ": font_family_sans, font_size_for_smaller_text, simple_leading_for_smaller_text
@@ -122,7 +124,7 @@
     #address,
     #year.
 
-    #context { counter(page).final().at(0) }
+    #context { quantity_of_counted_pages.final() }
     #if consider_only_odd_pages.get() [f.] else [p.]
     #if (counter(figure.where(kind: image)).final().first() > 0) [: il.]
     #parbreak()#linebreak()

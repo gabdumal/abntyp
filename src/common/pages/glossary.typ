@@ -26,19 +26,17 @@
       entries,
     )
   } else {
-    not_number_page(
-      not_start_on_new_page()[
-        #page()[
-          #glossary(
-            ..arguments,
-            entries,
-          )
-        ]
+    not_start_on_new_page()[
+      #page()[
+        #glossary(
+          ..arguments,
+          entries,
+        )
+      ]
 
-        #if not consider_only_odd_pages.get() {
-          pagebreak(weak: true, to: "odd")
-        }
-      ],
-    )
+      #if not consider_only_odd_pages.get() {
+        pagebreak(weak: true, to: "odd")
+      }
+    ]
   }
 }

@@ -15,7 +15,6 @@
   show heading.where(level: 1): set heading(supplement: "Capítulo")
   show heading.where(level: 2): set heading(supplement: "Seção")
 
-
   common_template(
     doc,
     color_of_links: color_of_links,
