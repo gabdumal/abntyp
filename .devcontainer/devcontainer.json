@@ -2,25 +2,40 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "DavidAnson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "Gruntfuggly.todo-tree",
         "James-Yu.latex-workshop",
         "mhutchie.git-graph",
+        "ms-azuretools.vscode-containers",
         "myriad-dreamin.tinymist",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
+        "rust-lang.rust-analyzer",
         "streetsidesoftware.code-spell-checker-portuguese-brazilian",
         "streetsidesoftware.code-spell-checker",
-        "tamasfe.even-better-toml"
-      ]
+        "tamasfe.even-better-toml",
+        "vadimcn.vscode-lldb"
+      ],
+      "settings": {
+        "[rust]": {
+          "editor.defaultFormatter": "rust-lang.rust-analyzer"
+        },
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "rust-analyzer.check.command": "clippy"
+      }
     }
   },
   "dockerComposeFile": "../compose.yml",
   "name": "tamandua",
   "postCreateCommand": "utpm workspace link && typst --version && utpm --version",
-  // Connect as root (matches compose user)
   "remoteUser": "root",
-  "service": "rust_dev_environment",
-  // Workspace folder inside container
+  "service": "dev_environment",
   "workspaceFolder": "/workspace"
 }
