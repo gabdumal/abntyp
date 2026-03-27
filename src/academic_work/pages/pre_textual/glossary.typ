@@ -1,15 +1,16 @@
 // # Glossary. Glossário.
 // NBR 14724:2024 4.2.3.2
 
-#import "../components/glossary.typ": glossary
-#import "../components/heading.typ": not_start_on_new_page
-#import "../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../../common/components/glossary.typ": include_glossary
+#import "../../../academic_work/components/heading.typ": not_start_on_new_page
+#import "../../../academic_work/components/page.typ": consider_only_odd_pages, not_number_page
 
-#let include_glossary(
+#let include_glossary_page(
   disable_back_references: true,
   invisible: false,
   print_gloss: none,
   title: "Glossário",
+  outlined: true,
   entries,
 ) = context {
   let arguments = (
@@ -17,18 +18,19 @@
     invisible: invisible,
     print_gloss: print_gloss,
     title: title,
+    outlined: outlined,
   )
 
   // If the glossary must not be printed, no page will be crated for it
   if (invisible == true) {
-    glossary(
+    include_glossary(
       ..arguments,
       entries,
     )
   } else {
     not_start_on_new_page()[
       #page()[
-        #glossary(
+        #include_glossary(
           ..arguments,
           entries,
         )

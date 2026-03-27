@@ -1,10 +1,10 @@
 // # Dedication. Dedicatória.
 // NBR 14724:2024 4.2.1.4, NBR 14724:2024 5.2.4
 
-#import "../../../common/components/heading.typ": not_start_on_new_page
-#import "../../../common/components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
+#import "../../components/heading.typ": not_start_on_new_page
+#import "../../components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
 
-#let include_dedication(
+#let include_dedication_page(
   body,
 ) = context {
   not_number_page(

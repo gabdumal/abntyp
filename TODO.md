@@ -104,17 +104,17 @@
 
 ## [⚫] NBR 6029:2023 — Informação e documentação — Livros e folhetos — Apresentação — 3ª edição, 2023-03-22
 
-## [⚪] NBR 6034:2004 — Informação e documentação — Índice — Apresentação — 2ª edição, 2004-12-31
+## [⚫] NBR 6034:2004 — Informação e documentação — Índice — Apresentação — 2ª edição, 2004-12-31
 
-- [⚪] 4. Classificação
-- [⚪] 5. Localização
-- [⚪] 6. Regras gerais de apresentação
-  - [⚪] Conteúdo
-  - [⚪] Organização
-  - [⚪] Título
-  - [⚪] Apresentação
-  - [⚪] Remissiva
-  - [⚪] Indicativo
+- [⚫] 4. Classificação
+- [⚫] 5. Localização
+- [⚫] 6. Regras gerais de apresentação
+  - [⚫] Conteúdo
+  - [⚫] Organização
+  - [⚫] Título
+  - [⚫] Apresentação
+  - [⚫] Remissiva
+  - [⚫] Indicativo
 
 ## [⚪] NBR 10520:2023 — Informação e documentação — Citações em documentos — Apresentação — 2ª edição, 2023-07-19
 
@@ -167,7 +167,7 @@
       - [⚪] 4.2.3.2. Glossário (opcional)
       - [⚪] 4.2.3.3. Apêndice (opcional)
       - [⚪] 4.2.3.4. Anexo (opcional)
-      - [⚪] 4.2.3.5. Índice (opcional) — NBR 6034
+      - [⚫] 4.2.3.5. Índice (opcional) — NBR 6034
       - [⚪] 4.2.3.6. Formulário de identificação (obrigatório quando não forem utilizados os dados internacionais de catalogação na publicação)
 - [⚪] 5. Regras gerais
   - [⚪] 5.1. Formato
@@ -287,5 +287,5 @@
       - [⚪] 4.2.3.2. Glossário (opcional)
       - [⚪] 4.2.3.3. Apêndice (opcional)
       - [⚪] 4.2.3.4. Anexo (opcional)
-      - [⚪] 4.2.3.5. Índice (opcional) — NBR 6034
+      - [⚫] 4.2.3.5. Índice (opcional) — NBR 6034
 - [⚪] 5. Regras gerais

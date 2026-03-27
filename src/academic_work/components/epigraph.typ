@@ -2,10 +2,10 @@
 // NBR 14724:2024 4.2.1.6
 
 #import "./heading.typ": not_start_on_new_page
-#import "./quote.typ": format_quote
+#import "../../common/components/quote.typ": format_quote
 
 // NBR 14724:2024 4.2.1.6, NBR 14724:2024 5.2.4, NBR 14724:2024 5.5
-#let epigraph(
+#let include_epigraph(
   indent: true,
   smaller_text: true,
   body,

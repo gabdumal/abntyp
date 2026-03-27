@@ -1,10 +1,10 @@
 // # List of tables. Lista de tabelas.
 // NBR 14724:2024 4.2.1.10
 
-#import "../style/style.typ": font_family_sans
-#import "entry_on_outline_lists.typ": format_outline_entry
+#import "../../common/style/style.typ": font_family_sans
+#import "../components/entry_on_outline_lists.typ": format_outline_entry
 
-#let list_of_tables() = {
+#let include_list_of_tables() = {
   set text(
     font: font_family_sans,
   )

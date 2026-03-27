@@ -2,12 +2,12 @@
 // NBR 14724:2024 4.2.1.11, 4.2.1.12, 4.2.3.2
 
 #import "../packages.typ": glossarium
-#import "../style/style.typ": font_family_sans
 
-#let glossary(
-  disable_back_references: false,
+#let include_glossary(
+  disable_back_references: true,
   invisible: false,
   print_gloss: none,
+  outlined: true,
   title: "Glossário",
   entries,
 ) = {
@@ -32,12 +32,9 @@
   }
 
   if (invisible == false) {
-    set text(
-      font: font_family_sans,
-    )
     set heading(
       numbering: none,
-      outlined: false,
+      outlined: outlined,
     )
     heading(level: 1, title)
     print_glossary()

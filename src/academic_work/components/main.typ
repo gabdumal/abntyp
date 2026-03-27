@@ -1,4 +1,3 @@
 // # Components. Componentes.
 
-#import "./annex.typ": annex
-#import "./appendix.typ": appendix
+#import "./epigraph.typ": include_epigraph

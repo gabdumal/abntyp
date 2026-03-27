@@ -2,8 +2,8 @@
 #import "./components/editor_note.typ": should_display_editor_notes as should_display_editor_notes_state
 #import "./components/figure.typ": figure_with_spacing_around
 #import "./components/footnote.typ": format_footnote_entry
-#import "./components/heading.typ": format_heading
-#import "./components/page.typ": (
+#import "../common/components/heading.typ": format_heading
+#import "../academic_work/components/page.typ": (
   consider_only_odd_pages as consider_only_odd_pages_state, format_header, should_count_this_page,
   should_number_this_page,
 )
@@ -20,39 +20,10 @@
   doc,
   // Color to format links.
   color_of_links: none,
-  // Whether to print content on the back of pages.
-  consider_only_odd_pages: true,
-  // Whether to number pages and print its number on the header.
-  number_pages: false,
   // Whether to display editor notes.
   should_display_editor_notes: true,
 ) = {
-  consider_only_odd_pages_state.update(consider_only_odd_pages)
   should_display_editor_notes_state.update(should_display_editor_notes)
-
-  // ## Page. Página.
-  // NBR 14724:2024 5.1
-  // When the document is printed double-sided, the inner margin should be larger than the outer margin
-  let margin = if consider_only_odd_pages {
-    (
-      top: margin_top,
-      right: margin_end,
-      bottom: margin_bottom,
-      left: margin_start,
-    )
-  } else {
-    (
-      top: margin_top,
-      outside: margin_end,
-      bottom: margin_bottom,
-      inside: margin_start,
-    )
-  }
-  set page(
-    paper: paper_size,
-    margin: margin,
-    header: format_header(number_pages),
-  )
 
   // ## Text. Texto.
   set text(
@@ -74,6 +45,11 @@
     leading: leading_for_common_text,
     spacing: spacing_for_common_text,
     justify: true,
+  )
+
+  // ## Heading. Títulos.
+  set heading(
+    numbering: "1.1",
   )
 
   // ## Lists. Listas.
@@ -138,27 +114,6 @@
     content
   }
 
-  // ## Headings. Títulos.
-
-  // ### Numbering. Numeração.
-  // NBR 14724:2024 5.2.2, NBR 6024:2012 4.1
-  // Should use Arabic numerals
-  // Should start at 1
-  // Secondary (and following) headings should be separated by a dot after the number
-  set heading(
-    numbering: "1.1",
-  )
-  set heading(
-    supplement: "Seção",
-  )
-
-  // ### Format. Formatação.
-  show heading: it => {
-    format_heading(
-      it,
-    )
-  }
-
   // ## Figures. Figuras.
   // NBR 14724:2024 5.8
   set figure.caption(
@@ -196,7 +151,7 @@
   set bibliography(
     // The bibliography should be formatted according to the ABNT style
     style: "./style/bibliography_style.csl",
-    title: none,
+    title: "Referências",
   )
   show bibliography: it => {
     format_bibliography(it)

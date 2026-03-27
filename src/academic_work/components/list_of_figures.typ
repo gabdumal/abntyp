@@ -1,10 +1,10 @@
 // # List of figures. Lista de ilustrações.
 // NBR 14724:2024 4.2.1.9
 
-#import "../style/style.typ": font_family_sans
-#import "entry_on_outline_lists.typ": format_outline_entry
+#import "../../common/style/style.typ": font_family_sans
+#import "../components/entry_on_outline_lists.typ": format_outline_entry
 
-#let list_of_figures() = {
+#let include_list_of_figures() = {
   set text(
     font: font_family_sans,
   )

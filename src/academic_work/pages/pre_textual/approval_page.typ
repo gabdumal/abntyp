@@ -1,18 +1,18 @@
 // # Approval page. Folha de aprovação.
 // NBR 14724:2024 4.2.1.3, NBR 14724:2024 5.2.4
 
-#import "../../../common/components/advisors.typ": get_advisor_role
-#import "../../../common/components/heading.typ": not_start_on_new_page
-#import "../../../common/components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
-#import "../../../common/components/people.typ": print_people, print_person
 #import "../../../common/components/title.typ": print_title
 #import "../../../common/style/style.typ": (
   font_family_sans, font_size_for_smaller_text, simple_leading_for_smaller_text, simple_spacing_for_smaller_text,
 )
 #import "../../../common/util/gender.typ": get_gender_ending
+#import "../../util/advisors.typ": get_advisor_role
 #import "../../components/examiner.typ": print_examiner
+#import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/institutional_information.typ": print_institutional_information
 #import "../../components/nature.typ": print_nature
+#import "../../components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
+#import "../../components/people.typ": print_people, print_person
 
 #let include_approval_page(
   authors: {

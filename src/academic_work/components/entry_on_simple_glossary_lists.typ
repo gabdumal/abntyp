@@ -1,7 +1,7 @@
 // # Entry on simple glossary list. Entrada em lista simples de glossário.
 
-#import "../style/style.typ": spacing_for_common_text
-#import "../packages.typ": glossarium
+#import "../../common/style/style.typ": spacing_for_common_text
+#import "../../common/packages.typ": glossarium
 
 #let print_title = entry => {
   (

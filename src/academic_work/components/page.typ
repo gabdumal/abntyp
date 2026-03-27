@@ -1,6 +1,6 @@
 // # Page. Página.
 
-#import "../style/style.typ": font_family_serif, font_size_for_smaller_text
+#import "../../common/style/style.typ": font_family_serif, font_size_for_smaller_text
 
 #let should_number_this_page = state("tamandua_should_number_this_page", true)
 #let should_count_this_page = state("tamandua_should_count_this_page", true)
@@ -51,15 +51,15 @@
 
   if number_pages {
     // Display page number in the header
-    // if should_number_this_page.get() {
-    align(alignment)[
-      #text(
-        font: font_family_serif,
-        size: font_size_for_smaller_text,
-      )[
-        #page_number_to_display
+    if should_number_this_page.get() {
+      align(alignment)[
+        #text(
+          font: font_family_serif,
+          size: font_size_for_smaller_text,
+        )[
+          #page_number_to_display
+        ]
       ]
-    ]
-    // }
+    }
   }
 }
