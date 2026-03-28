@@ -2,7 +2,7 @@
 // NBR 6022:2018 5.1
 
 #import "../../common/components/title.typ": print_title
-#import "../../common/style/style.typ": leading_for_common_text
+#import "../../common/style/style.typ": leading_for_common_text, spacing_for_common_text
 
 #let print_person(
   person: (
@@ -58,12 +58,11 @@
 
     // ## Title in foreign language. Título em língua estrangeira.
     #if title_in_foreign_language != none [
-      #v(leading_for_common_text)
       #title_in_foreign_language
       #parbreak()
     ]
 
-    #v(leading_for_common_text * 2)
+    #v(spacing_for_common_text)
   ]
 
   align(right)[
@@ -79,4 +78,5 @@
         )
     )
   ]
+  parbreak()
 }

@@ -83,4 +83,4 @@
 #let leading_for_bibliography = font_size_for_common_text * leading_of_one
 
 // ## Figures. Figuras.
-#let spacing_around_figure = spacing_for_common_text * 2
+#let spacing_around_figure = spacing_for_common_text

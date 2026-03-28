@@ -30,13 +30,20 @@
     spacing: spacing,
   )
 
-  pad(
-    // Long quotes should have a 4cm space on the left side.
-    left: if indent { 4cm } else { 0cm },
-  )[
-    #block()[
+  block(
+    above: spacing,
+    below: spacing,
+    breakable: true,
+    pad(
+      // Long quotes should have a 4cm space on the left side.
+      left: if indent {
+        4cm
+      } else {
+        0cm
+      },
+    )[
       #body.body
       #if body.attribution != none [#body.attribution]
-    ]
-  ]
+    ],
+  )
 }

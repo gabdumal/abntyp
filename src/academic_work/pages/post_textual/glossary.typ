@@ -2,6 +2,7 @@
 // NBR 14724:2024 4.2.3.2
 
 #import "../../../common/components/glossary.typ": include_glossary
+#import "../../../common/style/style.typ": font_family_sans
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/page.typ": consider_only_odd_pages
 
@@ -13,6 +14,10 @@
   outlined: true,
   entries,
 ) = context {
+  set text(
+    font: font_family_sans,
+  )
+
   let arguments = (
     disable_back_references: disable_back_references,
     invisible: invisible,
