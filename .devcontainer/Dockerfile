@@ -29,13 +29,10 @@ ENV PATH="$CARGO_HOME/bin:$PATH"
 # Install Typst
 RUN cargo install typst-cli --locked
 RUN cargo install hayagriva --features cli
+RUN cargo install utpm
 
-# Install Typst package: quati_abnt
-ARG QUATI_ABNT_VERSION
-ENV QUATI_ABNT_VERSION=$QUATI_ABNT_VERSION
-ENV QUATI_ABNT_PATH=/root/.local/share/typst/packages/preview/quati-abnt
-RUN mkdir -p $QUATI_ABNT_PATH/$QUATI_ABNT_VERSION
-
-RUN ln -s /workspace/typst.toml $QUATI_ABNT_PATH/$QUATI_ABNT_VERSION/typst.toml
-RUN ln -s /workspace/src $QUATI_ABNT_PATH/$QUATI_ABNT_VERSION/src
-RUN ln -s /workspace/README.md $QUATI_ABNT_PATH/$QUATI_ABNT_VERSION/README.md
+# Link local abnt-quati package into preview namespace
+ENV TYPST_PACKAGES_PATH="/root/.local/share/typst/packages"
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

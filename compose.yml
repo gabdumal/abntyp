@@ -5,16 +5,16 @@ services:
     build:
       context: .devcontainer
       dockerfile: Dockerfile
-      args:
-        - QUATI_ABNT_VERSION=0.0.1
     user: root
     volumes:
-      # Mount the project root
+      # Project root
       - .:/workspace:Z
-      # Named volumes for Cargo cache (avoids recompiling dependencies on rebuild)
+      # Cargo
       - cargo_registry:/root/.cargo/registry
       - cargo_git:/root/.cargo/git
       - cargo_target:/workspace/target
+      # Typst
+      - typst_packages:/root/.local/share/typst/packages
     working_dir: /workspace
     # Keep container running
     command: sleep infinity
@@ -25,3 +25,5 @@ volumes:
   cargo_git:
     name: cargo_git
   cargo_target:
+  typst_packages:
+    name: typst_packages
