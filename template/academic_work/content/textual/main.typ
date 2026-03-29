@@ -1,10 +1,9 @@
 #import "../../components.typ": describe_figure, note_from_alice, note_from_eduardo, todo_note
 #import "../../util.typ": get_term
 
-= Introdução <secao:introducao>
+= Introdução <capitulo:introducao>
 
-Esta é a @secao:introducao, de introdução.
-
+Este é o @capitulo:introducao, de introdução.
 
 #quote(
   attribution: [
@@ -12,7 +11,7 @@ Esta é a @secao:introducao, de introdução.
   ],
   block: true,
 )[
-  --- Quero um balão de cem metros cubicos.
+  --- Quero um balão de cem metros cúbicos.
 
   Grande espanto!
   Creio mesmo que pensaram que eu era doido.
@@ -28,7 +27,7 @@ Esta é a @secao:introducao, de introdução.
       ],
       image(
         width: 5cm,
-        "./../../assets/images/black_square.png",
+        "../../assets/images/black_square.png",
       ),
     )<figura:figure_of_an_image_of_a_black_square>
   ],
@@ -43,3 +42,14 @@ Esta é a @secao:introducao, de introdução.
 #note_from_eduardo(note: todo_note)[
   Nota de afazeres do Eduardo.
 ]
+
+Exemplo de uso de texto no glossário:
+@rn.
+
+= Fundamentação teórica
+
+= Material e métodos
+
+= Resultados
+
+= Considerações finais

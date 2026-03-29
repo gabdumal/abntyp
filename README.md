@@ -1,33 +1,27 @@
-# quati_abnt
+# quati-abnt
 
 Compose documents according to ABNT standards.
 
-## Installation
+## Initialization
 
-Clone this repository.
-
-Open this project in a terminal.
-
-Install the submodules.
+Create a new project using this template.
 
 ```bash
-git submodule update --init --recursive
+typst init @preview/quati-abnt:0.0.2
 ```
 
-Open this project in Visual Studio Code.
-Then, install the recommended extensions.
+This will create two folders: `article`, intended for scientific papers, and `academic_work`, intended for dissertations, theses, and monographs.
 
-On Visual Studio Code, open the `Open a Remote Window` menu, and select `Reopen in Container`.
-
-Open the terminal inside the container, and run the following command to install the package.
-
-```bash
-utpm workspace link
+```
+.
+├── article
+│   └── main.typ
+└── academic_work
+    └── main.typ
 ```
 
-## Usage
+Each folder contains a `main.typ` file, which is the entry point for the document.
 
-On Visual Studio Code, open the `Open a Remote Window` menu, and select `Reopen in Container`.
+If you do not intend on using one of the templates, you can delete the corresponding folder.
 
-Open some the `main.typ` file of the desired template.
-Open the Command Palette, and select `Typst Preview: Preview Opened File`.
+After that, select the `main.typ` file of the desired template, to render the document.

@@ -1,9 +1,11 @@
 // # Pre-textual elements. Elementos pré-textuais.
 // NBR 6022:2018 5.1
 
-#import "../components.typ": include_abstracts, include_opening, print_title
 #import "../data/main.typ": authors, subtitle, title
-#import "../packages.typ": glossarium
+#import "../packages.typ": (
+  glossarium, quati-abnt.article.components.include_abstracts, quati-abnt.article.components.include_opening,
+  quati-abnt.common.components.print_title,
+)
 #import "../util.typ": foreign_text
 
 // ## Title in foreign language. Título em língua estrangeira.
