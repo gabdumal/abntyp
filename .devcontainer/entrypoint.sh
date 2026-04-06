@@ -1,6 +1,8 @@
 #!/bin/sh
 set -euo pipefail
 
+# # Create symlink-folder preview that points to local
+
 mkdir -p "$TYPST_PACKAGES_PATH/local/quati-abnt" "$TYPST_PACKAGES_PATH/preview"
 
 cd "$TYPST_PACKAGES_PATH/preview"

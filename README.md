@@ -24,4 +24,4 @@ Each folder contains a `main.typ` file, which is the entry point for the documen
 
 If you do not intend on using one of the templates, you can delete the corresponding folder.
 
-After that, select the `main.typ` file of the desired template, to render the document.
+After that, select the `main.typ` file of the desired template to render the document.

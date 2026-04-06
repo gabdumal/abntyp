@@ -577,6 +577,7 @@
                 <text macro="names-citation" />
                 <group prefix="(" suffix=")">
                     <text macro="date-year" />
+                    <text variable="year-suffix" />
                     <text macro="citation-locator" prefix=", " />
                 </group>
             </group>
