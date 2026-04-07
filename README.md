@@ -4,7 +4,7 @@ Compose documents according to ABNT standards.
 
 ## Initialization
 
-Create a new project using this template.
+Create a new project using this template using the following command when running typst locally, or by selecting the template on the Typst web app.
 
 ```bash
 typst init @preview/quati-abnt:0.0.2
@@ -26,7 +26,11 @@ If you do not intend on using one of the templates, you can delete the correspon
 
 After that, select the `main.typ` file of the desired template to render the document.
 
-![First page of a paper that uses the article template.](thumbnail.png)
+On the `/packages.typ` file inside each template folder, you will find the importing of the `quati-abnt` package.
+
+```typst
+#import "@preview/quati-abnt:0.0.2" as quati-abnt
+```
 
 ## Paper template
 
