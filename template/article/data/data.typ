@@ -2,6 +2,19 @@
 // This file contains metadata for an article.
 // For the optional fields, you can leave them empty or comment the square brackets.
 
+// Title — required.
+// Título — obrigatório.
+#let title = {
+  [Guia de redação]
+}
+
+// Subtitle — optional.
+// Subtítulo — opcional.
+#let subtitle = {
+  [artigo científico]
+}
+
+
 // Authors — required.
 // Autores — obrigatório.
 #let authors = (
@@ -26,15 +39,3 @@
     ],
   ),
 )
-
-// Title — required.
-// Título — obrigatório.
-#let title = {
-  [Guia de redação]
-}
-
-// Subtitle — optional.
-// Subtítulo — opcional.
-#let subtitle = {
-  [artigo científico]
-}

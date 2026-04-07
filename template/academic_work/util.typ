@@ -1,6 +1,6 @@
 // # Util. Utilitários
 
-#import "./data/glossary/terms.typ": terms_entries
+#import "data/terms.typ": terms_entries
 #import "./packages.typ": (
   quati-abnt.common.style, quati-abnt.common.util.foreign_text, quati-abnt.common.util.get_term as quati_abnt_get_term,
 )

@@ -1,7 +1,7 @@
 // # Article. Artigo.
 // NBR 6022:2018
 
-#import "./data/glossary/main.typ": glossary_entries
+#import "./data/glossary.typ": glossary_entries
 #import "./packages.typ": glossarium, quati-abnt
 
 // ## Glossary. Glossário.
@@ -25,10 +25,10 @@
   should_display_editor_notes: true,
 )
 
-#include "content/pre_textual.typ"
+#include "./content/pre_textual.typ"
 
-#include "content/textual/main.typ"
+#include "./content/textual/main.typ"
 
 #bibliography("./data/bibliography.bib")
 
-#include "content/post_textual.typ"
+#include "./content/post_textual.typ"

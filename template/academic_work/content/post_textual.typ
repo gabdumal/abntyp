@@ -5,7 +5,7 @@
 // ## Glossary. Glossário.
 // NBR 14724:2024 4.2.3.2
 
-#import "../data/glossary/glossary.typ": glossary_entries
+#import "../data/glossary.typ": glossary_entries
 #import "../packages.typ": (
   quati-abnt.academic_work.pages.include_glossary_page, quati-abnt.common.components.include_annex,
   quati-abnt.common.components.include_appendix,

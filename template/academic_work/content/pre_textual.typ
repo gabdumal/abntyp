@@ -1,9 +1,9 @@
 // # Pre-textual elements. Elementos pré-textuais.
 // NBR 14724:2024 4.2.1
 
-#import "../data/glossary/abbreviations.typ": abbreviations_entries
+#import "../data/glossary.typ": abbreviations_entries
 #import "../data/glossary/symbols.typ": symbols_entries
-#import "../data/main.typ": (
+#import "../data/data.typ": (
   address, advisors, approval_date, area_of_concentration, authors, custom_nature, degree, degree_topic,
   examination_committee, institution, organization, program, subtitle, title, type_of_work, volume_number, year,
 )

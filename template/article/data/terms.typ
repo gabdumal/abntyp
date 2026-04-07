@@ -1,8 +1,6 @@
 // # Terms. Termos.
 
-#import "../../packages.typ": (
-  quati-abnt.common.util.foreign_text, quati-abnt.common.util.get_term as quati_abnt_get_term,
-)
+#import "../packages.typ": quati-abnt.common.util.foreign_text, quati-abnt.common.util.get_term as quati_abnt_get_term
 
 #let terms_entries = (
   (

@@ -1,7 +1,7 @@
 // # Post-textual elements. Elementos pós-textuais.
 // NBR 6022:2018 5.3
 
-#import "../data/glossary/main.typ": glossary_entries
+#import "../data/glossary.typ": glossary_entries
 #import "../packages.typ": (
   quati-abnt.article.components.include_acknowledgements, quati-abnt.common.components.include_annex,
   quati-abnt.common.components.include_appendix, quati-abnt.common.components.include_glossary,

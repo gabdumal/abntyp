@@ -1,15 +1,8 @@
-// # Abbreviations. Abreviaturas.
-// NBR 14724:2024 4.2.1.11
+// # Glossary. Glossário.
 
-#import "../../util.typ": foreign_text
+#let abbreviations_entries = ()
 
-#let abbreviations_entries = (
-  (
-    key: "ibge",
-    short: "IBGE",
-    long: "Instituto Brasileiro de Geografia e Estatística",
-    group: "Normatização",
-  ),
+#let glossary_entries = (
   (
     key: "abnt",
     short: "ABNT",
@@ -24,4 +17,13 @@
     longplural: "Normas Brasileiras",
     group: "Normatização",
   ),
+)
+
+#let symbols_entries = ()
+
+
+#let glossary_entries = (
+  ..abbreviations_entries,
+  ..glossary_entries,
+  ..symbols_entries,
 )

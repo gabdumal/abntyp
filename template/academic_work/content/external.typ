@@ -4,7 +4,7 @@
 // ## Cover. Capa.
 // NBR 14724:2024 4.1.1
 
-#import "../data/main.typ": address, authors, institution, organization, program, subtitle, title, volume_number, year
+#import "../data/data.typ": address, authors, institution, organization, program, subtitle, title, volume_number, year
 #import "../packages.typ": quati-abnt.academic_work.pages.include_cover
 
 #include_cover(

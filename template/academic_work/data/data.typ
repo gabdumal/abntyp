@@ -2,6 +2,18 @@
 // This file contains metadata for an academic work, such as a thesis or dissertation.
 // For the optional fields, you can leave them empty or comment the square brackets.
 
+// Title — required.
+// Título — obrigatório.
+#let title = {
+  [Guia de redação]
+}
+
+// Subtitle — optional.
+// Subtítulo — opcional.
+#let subtitle = {
+  [trabalho acadêmico]
+}
+
 // Authors — required.
 // Autores — obrigatório.
 #let authors = (
@@ -83,18 +95,6 @@
     ),
   ),
 )
-
-// Title — required.
-// Título — obrigatório.
-#let title = {
-  [Guia de redação]
-}
-
-// Subtitle — optional.
-// Subtítulo — opcional.
-#let subtitle = {
-  [trabalho acadêmico]
-}
 
 // Organization — required. Usually the name of the university.
 // Organização — obrigatório. Geralmente o nome da universidade.
@@ -239,6 +239,16 @@
   // [1]
 }
 
+// Approval date — required.
+// Data de aprovação — obrigatório.
+#let approval_date = {
+  (
+    day: [01],
+    month: [janeiro],
+    year: [2026],
+  )
+}
+
 // Custom nature of the work — optional.
 // If you want to customize the nature of the work, you can do it here.
 // If you leave it empty, the default nature will be used.
@@ -250,14 +260,4 @@
   // [
   //   Trabalho apresentado ao Bacharelado em Sistemas de Informação da Universidade Federal de Juiz de Fora como requisito parcial para a aprovação na disciplina de Sistemas de Apoio à Decisão.
   // ]
-}
-
-// Approval date — required.
-// Data de aprovação — obrigatório.
-#let approval_date = {
-  (
-    day: [01],
-    month: [janeiro],
-    year: [2026],
-  )
 }
