@@ -79,4 +79,6 @@
     )
   ]
   parbreak()
+
+  counter(footnote).update(0)
 }

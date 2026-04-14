@@ -11,7 +11,7 @@ Esta é a @secao:introducao, de introdução.
   ],
   block: true,
 )[
-  --- Quero um balão de cem metros cubicos.
+  --- Quero um balão de cem metros cúbicos.
 
   Grande espanto!
   Creio mesmo que pensaram que eu era doido.
@@ -34,6 +34,11 @@ Esta é a @secao:introducao, de introdução.
 )
 
 #lorem(50)
+
+Exemplo de nota de rodapé
+#footnote[
+  #lorem(10)
+].
 
 #note_from_alice()[
   Nota da Alice.
