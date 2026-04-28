@@ -4,15 +4,19 @@ Compose documents according to ABNT standards.
 
 ## Initialization
 
-Create a new project using this template using the following command when running typst locally, or by selecting the template on the Typst web app.
+In order to create a new project using this template, you can either:
+
+- use the following command when running typst **locally**;
 
 ```bash
 typst init @preview/quati-abnt:0.0.4
 ```
 
+- or select [this template](https://typst.app/universe/package/quati-abnt) on the Typst **web app**.
+
 This will create two folders: `article`, intended for scientific papers, and `academic_work`, intended for dissertations, theses, and monographs.
 
-```
+```filesystem
 .
 ├── article
 │   └── main.typ
@@ -22,9 +26,9 @@ This will create two folders: `article`, intended for scientific papers, and `ac
 
 Each folder contains a `main.typ` file, which is the entry point for the document.
 
-If you do not intend on using one of the templates, you can delete the corresponding folder.
+If you do not intend on using one of the templates, you can **delete** the corresponding folder.
 
-After that, select the `main.typ` file of the desired template to render the document.
+After that, select the `main.typ` file on the **desired template** to render the document.
 
 On the `/packages.typ` file inside each template folder, you will find the importing of the `quati-abnt` package.
 
@@ -49,7 +53,15 @@ This file initializes the template, offering options to configure it.
 
   // Define the color of links and cross-references.
   // Defina a cor dos links e das referências cruzadas.
-  color_of_links: oklch(25%, 0.17, 264.05deg),
+  color_of_links: quati-abnt.common.style.color_of_links,
+
+  // Define the font family to be used on each context.
+  // Defina a família tipográfica a ser utilizada em cada contexto.
+  font_family_for_common_text: quati-abnt.common.style.font_family_serif,
+  font_family_for_highlighted_text: quati-abnt.common.style.font_family_sans,
+  font_family_for_math_text: quati-abnt.common.style.font_family_math,
+  font_family_for_monospaced_text: quati-abnt.common.style.font_family_mono,
+  font_family_for_editor_notes: quati-abnt.common.style.font_family_sans,
 
   // Define whether to count pages and place its numbers at the headers.
   // Defina se deve contar as páginas e exibir seus números nos cabeçalhos.
@@ -64,7 +76,7 @@ This file initializes the template, offering options to configure it.
 ### Packages
 
 Still on the root folder, you can include more Typst packages on the `/packages.typ` file.
-This template depends on these packages, which are already re-exported to your project: `glossarium`; and `subpar`.
+This template depends on these packages, which are already re-exported to your project: `glossarium`.
 
 ### Components
 
@@ -123,8 +135,7 @@ Then, write the abstract and the keywords in the main language.
     ),
     title: "Resumo",
     body: [
-      Este exemplo apresenta o uso do `quati-abnt`, modelo de artigo segundo as @nbr:pl da @abnt.
-      Esse modelo é desenvolvido para a ferramenta Typst.
+      Este exemplo apresenta o uso do `quati-abnt`, modelo de artigo para o Typst segundo as @nbr:pl da @abnt.
     ],
   )
 }
