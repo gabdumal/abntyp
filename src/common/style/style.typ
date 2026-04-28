@@ -25,9 +25,7 @@
 
 // ## Font size. Tamanho da fonte.
 // NBR 14724:2024 5.1, NBR 6022:2018 6.1.
-#let font_size_for_level_1_headings = 12pt
-#let font_size_for_level_2_headings = 12pt
-#let font_size_for_level_3_and_beyond_headings = 12pt
+#let font_size_for_larger_text = 13pt
 #let font_size_for_common_text = 12pt
 // Smaller text must be used for: quotations with more than 3 lines, footnotes, page numbering, cataloging-in-publication, references and information of figures and tables.
 #let font_size_for_smaller_text = 11pt
@@ -39,13 +37,9 @@
 #let spacing_of_one = 1.0 / 2
 #let spacing_of_one_and_a_half = 1.5 / 2
 //
-// ### Headings. Títulos.
-#let spacing_for_level_1_headings = font_size_for_level_1_headings * spacing_of_one_and_a_half
-#let spacing_for_level_2_headings = font_size_for_level_2_headings * spacing_of_one_and_a_half
-#let spacing_for_level_3_and_beyond_headings = font_size_for_level_3_and_beyond_headings * spacing_of_one_and_a_half
-//
 // ### Common text. Texto comum.
 // Spacing of 1.5 must be used for common text.
+#let spacing_for_larger_text = font_size_for_larger_text * spacing_of_one_and_a_half
 #let spacing_for_common_text = font_size_for_common_text * spacing_of_one_and_a_half
 //
 // ### Smaller text. Texto menor.
@@ -64,13 +58,9 @@
 #let leading_of_one = spacing_of_one
 #let leading_of_one_and_a_half = spacing_of_one_and_a_half
 //
-// ### Headings. Títulos.
-#let leading_for_level_1_headings = font_size_for_level_1_headings * leading_of_one_and_a_half
-#let leading_for_level_2_headings = font_size_for_level_2_headings * leading_of_one_and_a_half
-#let leading_for_level_3_and_beyond_headings = font_size_for_level_3_and_beyond_headings * leading_of_one_and_a_half
-//
 // ### Common text. Texto comum.
 // Leading of 1.5 must be used for common text.
+#let leading_for_larger_text = font_size_for_larger_text * leading_of_one_and_a_half
 #let leading_for_common_text = font_size_for_common_text * leading_of_one_and_a_half
 //
 // ### Smaller text. Texto menor.

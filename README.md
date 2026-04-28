@@ -47,7 +47,6 @@ To render the paper, select the `/main.typ` file.
 This file initializes the template, offering options to configure it.
 
 ```typst
-// ## Template. Modelo.
 #show: it => quati-abnt.article.template(
   it,
 
@@ -62,6 +61,10 @@ This file initializes the template, offering options to configure it.
   font_family_for_math_text: quati-abnt.common.style.font_family_math,
   font_family_for_monospaced_text: quati-abnt.common.style.font_family_mono,
   font_family_for_editor_notes: quati-abnt.common.style.font_family_sans,
+
+  // Define whether to use larger text as typographic highlight.
+  // Defina se deve ser utilizada uma fonte maior como destaque tipográfico.
+  should_use_larger_text_to_highlight: false,
 
   // Define whether to count pages and place its numbers at the headers.
   // Defina se deve contar as páginas e exibir seus números nos cabeçalhos.

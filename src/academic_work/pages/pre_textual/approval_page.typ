@@ -3,10 +3,12 @@
 
 #import "../../../common/components/title.typ": print_title
 #import "../../../common/style/style.typ": (
-  font_size_for_smaller_text, simple_leading_for_smaller_text, simple_spacing_for_smaller_text,
+  font_size_for_larger_text, font_size_for_smaller_text, leading_for_larger_text, simple_leading_for_smaller_text,
+  simple_spacing_for_smaller_text, spacing_for_larger_text,
 )
 #import "../../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../../../common/util/gender.typ": get_gender_ending
+#import "../../../common/template.typ": should_use_larger_text_to_highlight_state
 #import "../../components/examiner.typ": print_examiner
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/nature.typ": print_nature
@@ -181,8 +183,25 @@
         #v(0.25fr)
 
         // Examination committee
-        #text(weight: "bold")[
-          #upper[Banca examinadora]
+        #[
+          #set text(weight: "bold")
+          #let content = [Banca examinadora]
+
+          #let should_use_larger_text_to_highlight = should_use_larger_text_to_highlight_state.get()
+
+          #if should_use_larger_text_to_highlight {
+            set par(
+              leading: leading_for_larger_text,
+              spacing: spacing_for_larger_text,
+            )
+            text(
+              size: font_size_for_larger_text,
+              content,
+            )
+          } else {
+            upper(content)
+          }
+
         ]
 
         #let is_first_advisor = true

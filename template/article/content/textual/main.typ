@@ -30,7 +30,7 @@ Esta é a @seção:introdução, de introdução.
         Quadrado preto
       ],
       image(
-        width: 5cm,
+        width: 4.75cm,
         "./../../assets/images/black_square.png",
       ),
     )<figura:quadrado_preto>
@@ -90,3 +90,9 @@ Exemplo de uso de texto no glossário:
 @rn.
 
 Exemplo de uso de termo útil: #get_term("software").
+
+= Título primário
+== Título secundário
+=== Título terciário
+==== Título quaternário
+===== Título quinário

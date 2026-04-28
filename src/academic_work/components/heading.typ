@@ -17,6 +17,7 @@
 }
 
 #let format_heading(
+  should_use_larger_text_to_highlight: false,
   body,
 ) = context {
   // NBR 14724:2024 5.2.2.
@@ -32,5 +33,8 @@
     }
   }
 
-  format_heading_from_common(body)
+  format_heading_from_common(
+    should_use_larger_text_to_highlight: should_use_larger_text_to_highlight,
+    body,
+  )
 }

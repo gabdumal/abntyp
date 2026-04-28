@@ -2,52 +2,75 @@
 
 #import "../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../style/style.typ": (
-  font_size_for_common_text, font_size_for_level_1_headings, font_size_for_level_2_headings,
-  font_size_for_level_3_and_beyond_headings, leading_for_level_1_headings, leading_for_level_2_headings,
-  leading_for_level_3_and_beyond_headings, spacing_for_level_1_headings, spacing_for_level_2_headings,
-  spacing_for_level_3_and_beyond_headings,
+  font_size_for_common_text, font_size_for_larger_text, leading_for_common_text, leading_for_larger_text,
+  spacing_for_common_text, spacing_for_larger_text,
 )
 
-#let get_styling_for_heading(body) = {
+#let get_styling_for_heading(
+  should_use_larger_text_to_highlight: false,
+  body,
+) = {
   // NBR 6024:2012 4.1.
   // The format of headings should represent their hierarchical level.
 
   let font_size = font_size_for_common_text
-  let leading = leading_for_level_3_and_beyond_headings
-  let spacing = spacing_for_level_3_and_beyond_headings
+  let leading = leading_for_common_text
+  let spacing = spacing_for_common_text
   let font_weight = "regular"
   let text_style = "normal"
-  let capitalize = false
+  let should_capitalize = false
+  let should_underline = false
 
   if body.level == 1 {
-    capitalize = true
-    font_size = font_size_for_level_1_headings
     font_weight = "bold"
-    leading = leading_for_level_1_headings
-    spacing = spacing_for_level_1_headings
+    if should_use_larger_text_to_highlight {
+      font_size = font_size_for_larger_text
+      let leading = leading_for_larger_text
+      let spacing = spacing_for_larger_text
+    } else {
+      should_capitalize = true
+    }
   } else if body.level == 2 {
-    capitalize = true
-    font_size = font_size_for_level_2_headings
-    leading = leading_for_level_2_headings
-    spacing = spacing_for_level_2_headings
+    if should_use_larger_text_to_highlight {
+      font_size = font_size_for_larger_text
+      let leading = leading_for_larger_text
+      let spacing = spacing_for_larger_text
+    } else {
+      should_capitalize = true
+    }
   } else if body.level == 3 {
     font_weight = "bold"
-    font_size = font_size_for_level_3_and_beyond_headings
   } else if body.level == 4 {} else if body.level >= 5 {
     text_style = "italic"
   }
 
   return (
-    capitalize,
     font_size,
-    font_weight,
     leading,
     spacing,
+    should_capitalize,
+    font_weight,
     text_style,
+    should_underline,
   )
 }
 
+#let capitalize_or_underline_if_needed = (
+  should_capitalize: false,
+  should_underline: false,
+  it,
+) => {
+  if should_capitalize {
+    it = upper(it)
+  }
+  if should_underline {
+    it = underline(it)
+  }
+  it
+}
+
 #let format_heading(
+  should_use_larger_text_to_highlight: false,
   body,
 ) = context {
   // NBR 14724:2024 5.2.2.
@@ -57,13 +80,17 @@
   )
 
   let (
-    capitalize,
     font_size,
-    font_weight,
     leading,
     spacing,
+    should_capitalize,
+    font_weight,
     text_style,
-  ) = get_styling_for_heading(body)
+    should_underline,
+  ) = get_styling_for_heading(
+    should_use_larger_text_to_highlight: should_use_larger_text_to_highlight,
+    body,
+  )
   let text_before_numbering = none
   let text_after_numbering = none
   let column_gutter = measure(sym.dash).width
@@ -82,24 +109,31 @@
   if body.supplement == [Apêndice] {
     // NBR 14724:2024 4.2.3.3.
     // Appendixes must have the supplement "APÊNDICE" before its numbering and an em-dash after it.
-    text_before_numbering = "APÊNDICE"
+    text_before_numbering = "Apêndice"
     text_after_numbering = sym.dash.em
     column_gutter = measure(sym.space).width
   } else if body.supplement == [Anexo] {
     // NBR 14724:2024 4.2.3.4.
     // Annexes must have the supplement "ANEXO" before its numbering and an em-dash after it.
-    text_before_numbering = "ANEXO"
+    text_before_numbering = "Anexo"
     text_after_numbering = sym.dash.em
     column_gutter = measure(sym.space).width
   }
 
-  let heading_text = [
-    #if capitalize {
-      upper(body.body)
-    } else {
-      body.body
-    }
+  let prefix = numbering => capitalize_or_underline_if_needed(
+    should_capitalize: should_capitalize,
+    should_underline: should_underline,
+  )[
+    #text_before_numbering
+    #counter(heading).display(numbering)
+    #text_after_numbering
   ]
+
+  let heading_text = capitalize_or_underline_if_needed(
+    should_capitalize: should_capitalize,
+    should_underline: should_underline,
+    body.body,
+  )
 
   // NBR 14724:2024 5.2.2.
   // Headings must have a blank space of 1.5 above and below.
@@ -126,12 +160,7 @@
         rows: 1,
         // Numbering indicator should be separated from the title by a single space.
         column-gutter: column_gutter,
-        [
-          #text_before_numbering
-          #counter(heading).display(body.numbering)
-          #text_after_numbering
-        ],
-        [#heading_text],
+        prefix(body.numbering), heading_text,
       ),
     )
   }
