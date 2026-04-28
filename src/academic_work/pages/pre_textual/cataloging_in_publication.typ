@@ -2,7 +2,8 @@
 // NBR 14724:2024 4.2.1.1.2.
 
 #import "../../../common/components/title.typ": print_title
-#import "../../../common/style/style.typ": font_family_sans, font_size_for_smaller_text, simple_leading_for_smaller_text
+#import "../../../common/style/style.typ": font_size_for_smaller_text, simple_leading_for_smaller_text
+#import "../../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../../../common/util/text.typ": capitalize_first_letter
 #import "../../util/advisors.typ": get_advisor_role
 #import "../../components/heading.typ": not_start_on_new_page
@@ -99,7 +100,10 @@
   keywords_in_main_language: parameters.keywords_in_main_language,
 ) = page()[
   #set align(center + bottom)
-  #set text(font: font_family_sans, size: font_size_for_smaller_text)
+  #set text(
+    font: font_family_for_highlighted_text_state.get(),
+    size: font_size_for_smaller_text,
+  )
   #set par(first-line-indent: 0.5cm, leading: simple_leading_for_smaller_text, spacing: simple_leading_for_smaller_text)
 
   #box(

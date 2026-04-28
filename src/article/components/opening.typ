@@ -12,7 +12,7 @@
     last_name: "Fonseca",
     curriculum: "",
   ),
-) = {
+) = context {
   person.first_name + sym.space
   if person.middle_name != none {
     person.middle_name + sym.space

@@ -1,6 +1,8 @@
 // # Page. Página.
 
-#import "../../common/style/style.typ": font_family_serif, font_size_for_smaller_text
+#import "../../common/style/style.typ": font_size_for_smaller_text
+#import "../../common/util/font_family.typ": font_family_for_common_text_state
+
 
 #let should_number_this_page = state("quati_abnt_should_number_this_page", true)
 #let should_count_this_page = state("quati_abnt_should_count_this_page", true)
@@ -56,7 +58,7 @@
     if should_number_this_page.get() {
       align(alignment)[
         #text(
-          font: font_family_serif,
+          font: font_family_for_common_text_state.get(),
           size: font_size_for_smaller_text,
         )[
           #page_number_to_display

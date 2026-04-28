@@ -2,7 +2,7 @@
 // NBR 14724:2024 4.1.1
 
 #import "../../../common/components/title.typ": print_title
-#import "../../../common/style/style.typ": font_family_sans
+#import "../../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/institutional_information.typ": print_institutional_information
 #import "../../components/page.typ": not_count_page, not_number_page, should_consider_only_odd_pages
@@ -53,7 +53,7 @@
         #page()[
           #set align(center)
           #set text(
-            font: font_family_sans,
+            font: font_family_for_highlighted_text_state.get(),
           )
 
           // Institutional information

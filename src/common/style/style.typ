@@ -84,3 +84,6 @@
 
 // ## Figures. Figuras.
 #let spacing_around_figure = spacing_for_common_text
+
+// ## Links. Ligações.
+#let color_of_links = oklch(25%, 0.17, 264.05deg)

@@ -9,7 +9,7 @@
   color_of_links: none,
   // Font families.
   font_family_for_common_text: font_family_serif,
-  font_family_for_highlighted_text: font_family_serif,
+  font_family_for_highlighted_text: font_family_sans,
   font_family_for_math_text: font_family_math,
   font_family_for_monospaced_text: font_family_mono,
   font_family_for_editor_notes: font_family_sans,

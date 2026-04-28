@@ -1,14 +1,15 @@
 // # Outline. Sumário.
 // NBR 6027:2012, NBR 14724:2024 4.2.1.13
 
-#import "../../../common/style/style.typ": font_family_sans
+#import "../../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../../../common/components/heading.typ": get_styling_for_heading
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 
 #let include_outline_page() = context {
+  let font_family_for_highlighted_text = font_family_for_highlighted_text_state.get()
   set text(
-    font: font_family_sans,
+    font: font_family_for_highlighted_text,
   )
   not_number_page(
     not_start_on_new_page()[
@@ -24,7 +25,7 @@
           ) = get_styling_for_heading(it)
 
           set text(
-            font: font_family_sans,
+            font: font_family_for_highlighted_text,
             size: font_size,
             weight: font_weight,
             style: text_style,

@@ -14,18 +14,15 @@
 
   // Define the color of links and cross-references.
   // Defina a cor dos links e das referências cruzadas.
-  color_of_links: oklch(25%, 0.17, 264.05deg),
+  color_of_links: quati-abnt.common.style.color_of_links,
 
   // Define the font family to be used on each context.
   // Defina a família tipográfica a ser utilizada em cada contexto.
-  //   font_family_for_common_text: quati-abnt.common.style.font_family_serif,
-  //   font_family_for_highlighted_text: quati-abnt.common.style.font_family_serif,
+  font_family_for_common_text: quati-abnt.common.style.font_family_serif,
+  font_family_for_highlighted_text: quati-abnt.common.style.font_family_sans,
   font_family_for_math_text: quati-abnt.common.style.font_family_math,
   font_family_for_monospaced_text: quati-abnt.common.style.font_family_mono,
   font_family_for_editor_notes: quati-abnt.common.style.font_family_sans,
-
-  font_family_for_common_text: "Liberation Serif",
-  font_family_for_highlighted_text: "Liberation Sans",
 
   // Define whether to count pages and place its numbers at the headers.
   // Defina se deve contar as páginas e exibir seus números nos cabeçalhos.

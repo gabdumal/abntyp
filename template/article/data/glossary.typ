@@ -1,8 +1,8 @@
 // # Glossary. Glossário.
 
-#let abbreviations_entries = ()
+#import "../util.typ": foreign_text
 
-#let glossary_entries = (
+#let abbreviations_entries = (
   (
     key: "abnt",
     short: "ABNT",
@@ -16,6 +16,17 @@
     long: "Norma Brasileira",
     longplural: "Normas Brasileiras",
     group: "Normatização",
+  ),
+)
+
+#let glossary_entries = (
+  (
+    key: "rn",
+    short: "rede neural",
+    plural: "redes neurais",
+    custom: foreign_text[neural network],
+    description: [Em inglês, #foreign_text[neural network]. Modelo computacional composto por camadas de unidades interligadas que aprendem padrões em dados por meio de ajustes de pesos @li:2022:survey_convolutional_neural_networks.],
+    group: "Computação",
   ),
 )
 

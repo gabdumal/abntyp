@@ -1,9 +1,9 @@
 #import "../../components.typ": describe_figure, equation, note_from_alice, note_from_eduardo, todo_note
 #import "../../util.typ": get_term
 
-= Introdução <secao:introducao>
+= Introdução <seção:introdução>
 
-Esta é a @secao:introducao, de introdução.
+Esta é a @seção:introdução, de introdução.
 
 == Citação
 
@@ -33,11 +33,11 @@ Esta é a @secao:introducao, de introdução.
         width: 5cm,
         "./../../assets/images/black_square.png",
       ),
-    )<figura:figure_of_an_image_of_a_black_square>
+    )<figura:quadrado_preto>
   ],
 )
 
-#lorem(50)
+Esta é a @figura:quadrado_preto.
 
 == Nota de rodapé
 
@@ -77,9 +77,16 @@ aliquam quaerat voluptatem.
     ],
   )[
     #equation(
-      width: 40%,
+      width: 41.82%,
     )[
-      $ 1 + 1 = 2 $ <equacao:sum_1>
+      $ 1 + 1 = 2 $ <equação:soma>
     ]
   ]
 ]
+
+== Glossário
+
+Exemplo de uso de texto no glossário:
+@rn.
+
+Exemplo de uso de termo útil: #get_term("software").

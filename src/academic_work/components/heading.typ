@@ -18,7 +18,7 @@
 
 #let format_heading(
   body,
-) = {
+) = context {
   // NBR 14724:2024 5.2.2.
 
   // Level 1 headings should start on a new page.

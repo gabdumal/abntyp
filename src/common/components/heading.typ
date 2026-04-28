@@ -49,7 +49,7 @@
 
 #let format_heading(
   body,
-) = {
+) = context {
   // NBR 14724:2024 5.2.2.
 
   set text(
@@ -85,8 +85,7 @@
     text_before_numbering = "APÊNDICE"
     text_after_numbering = sym.dash.em
     column_gutter = measure(sym.space).width
-  }
-  if body.supplement == [Anexo] {
+  } else if body.supplement == [Anexo] {
     // NBR 14724:2024 4.2.3.4.
     // Annexes must have the supplement "ANEXO" before its numbering and an em-dash after it.
     text_before_numbering = "ANEXO"

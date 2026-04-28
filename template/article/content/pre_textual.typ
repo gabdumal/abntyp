@@ -32,8 +32,7 @@
     ),
     title: "Resumo",
     body: [
-      Este exemplo apresenta o uso do `quati-abnt`, modelo de artigo segundo as @nbr:pl da @abnt.
-      Esse modelo é desenvolvido para a ferramenta Typst.
+      Este exemplo apresenta o uso do `quati-abnt`, modelo de artigo para o Typst segundo as @nbr:pl da @abnt.
     ],
   )
 }
@@ -53,8 +52,7 @@
         lang: "en",
         region: "us",
       )[
-        This exemple presents the use of the `quati-abnt`, a paper template according to the #glossarium.gls("nbr", plural: true, display: "Brazilian Norms") from the #glossarium.gls("abnt", display: "Brazilian Association of Technical Norms (ABNT)").
-        This template is developed for the Typst tool.
+        This exemple presents the use of the `quati-abnt`, a paper template for Typst according to the #glossarium.gls("nbr", plural: true, display: "Brazilian Norms") from the #glossarium.gls("abnt", display: "Brazilian Association of Technical Norms (ABNT)").
       ]
     ],
   )

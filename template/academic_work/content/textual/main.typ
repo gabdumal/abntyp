@@ -1,9 +1,13 @@
-#import "../../components.typ": describe_figure, note_from_alice, note_from_eduardo, todo_note
+#import "../../components.typ": describe_figure, equation, note_from_alice, note_from_eduardo, todo_note
 #import "../../util.typ": get_term
 
-= Introdução <capitulo:introducao>
+= Introdução <capitulo:introdução>
 
-Este é o @capitulo:introducao, de introdução.
+Este é o @capitulo:introdução, de introdução.
+
+= Fundamentação teórica
+
+== Citação
 
 #quote(
   attribution: [
@@ -18,6 +22,8 @@ Este é o @capitulo:introducao, de introdução.
   Alguns meses depois, o "Brasil", com grande espanto de todos os entendidos, atravessava Paris, lindo na sua transparência, como uma grande bola de sabão
 ]
 
+== Ilustração
+
 #describe_figure(
   sticky: true,
   [
@@ -27,13 +33,22 @@ Este é o @capitulo:introducao, de introdução.
       ],
       image(
         width: 5cm,
-        "../../assets/images/black_square.png",
+        "./../../assets/images/black_square.png",
       ),
-    )<figura:figure_of_an_image_of_a_black_square>
+    )<figura:quadrado_preto>
   ],
 )
 
-#lorem(50)
+Esta é a @figura:quadrado_preto.
+
+== Nota de rodapé
+
+Exemplo de nota de rodapé
+#footnote[
+  #lorem(10)
+].
+
+== Nota de editor
 
 #note_from_alice()[
   Nota da Alice.
@@ -43,10 +58,40 @@ Este é o @capitulo:introducao, de introdução.
   Nota de afazeres do Eduardo.
 ]
 
+== Texto mono-espaçado
+
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnam
+aliquam quaerat voluptatem.
+```
+
+== Equações
+
+#describe_figure(
+  // placement: auto,
+)[
+  #figure(
+    supplement: "Esquema",
+    kind: "scheme",
+    caption: [
+      Soma entre dois números.
+    ],
+  )[
+    #equation(
+      width: 41.82%,
+    )[
+      $ 1 + 1 = 2 $ <equação:soma>
+    ]
+  ]
+]
+
+== Glossário
+
 Exemplo de uso de texto no glossário:
 @rn.
 
-= Fundamentação teórica
+Exemplo de uso de termo útil: #get_term("software").
 
 = Material e métodos
 
