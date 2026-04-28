@@ -11,26 +11,26 @@
         first_name: "Fulano",
         middle_name: none,
         last_name: "Fonseca",
-        gender: "masculine",
+        gender: "m",
       ),
     )
   },
   organization: {
     (
       name: "Nome da organização",
-      gender: "masculine",
+      gender: "m",
     )
   },
   program: {
     (
       name: "Nome do programa",
-      gender: "masculine",
+      gender: "m",
     )
   },
   type_of_work: {
     (
       name: "trabalho de conclusão de curso",
-      gender: "masculine",
+      gender: "m",
     )
   },
   degree: {
@@ -50,13 +50,13 @@
   let gender_ending_of_type_of_work = get_gender_ending(type_of_work.gender)
 
   let preposition_of_program = "à"
-  if program.gender == "masculine" {
+  if program.gender == "m" {
     preposition_of_program = "ao"
   }
 
   let degree_title = degree.title.feminine
   for author in authors {
-    if author.gender == "masculine" {
+    if author.gender == "m" {
       degree_title = degree.title.masculine
       break
     }

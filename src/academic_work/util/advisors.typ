@@ -1,14 +1,14 @@
 // # Advisors. Orientadores.
 
 #let get_advisor_role(
-  gender: "masculine",
+  gender: "m",
   is_co_advisor: false,
 ) = {
   if is_co_advisor {
     "co"
   }
   "orientador"
-  if gender == "feminine" {
+  if gender == "f" {
     "a"
   }
 }

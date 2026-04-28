@@ -16,7 +16,7 @@
         first_name: "Fulano",
         middle_name: none,
         last_name: "Fonseca",
-        gender: "masculine",
+        gender: "m",
       ),
     )
   },
@@ -35,14 +35,14 @@
         first_name: "Ciclana",
         middle_name: "de",
         last_name: "Castro",
-        gender: "feminine",
+        gender: "f",
       ),
     )
   },
   type_of_work: {
     (
       name: "trabalho de conclusão de curso",
-      gender: "masculine",
+      gender: "m",
     )
   },
   degree: {
@@ -57,19 +57,19 @@
   organization: {
     (
       name: "Nome da organização",
-      gender: "masculine",
+      gender: "m",
     )
   },
   institution: {
     // (
     //   name: "Nome da instituição",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   program: {
     // (
     //   name: "Nome do programa",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   keywords_in_main_language: {

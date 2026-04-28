@@ -18,7 +18,7 @@
         first_name: "Fulano",
         middle_name: none,
         last_name: "Fonseca",
-        gender: "masculine",
+        gender: "m",
       ),
     )
   },
@@ -32,19 +32,19 @@
   organization: {
     (
       name: "Nome da organização",
-      gender: "masculine",
+      gender: "m",
     )
   },
   program: {
     // (
     //   name: "Nome do programa",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   type_of_work: {
     // (
     //   name: "trabalho de conclusão de curso",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   degree: {
@@ -66,7 +66,7 @@
         first_name: "Ciclana",
         middle_name: "de",
         last_name: "Castro",
-        gender: "feminine",
+        gender: "f",
         prefix: {
           // "Profª Drª"
         },

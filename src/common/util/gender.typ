@@ -5,7 +5,7 @@
   masculine_ends_with_vowel: true,
   plural: false,
 ) = {
-  if gender == "masculine" {
+  if gender == "m" {
     if masculine_ends_with_vowel {
       "o"
     } else {
@@ -13,7 +13,7 @@
         "e"
       }
     }
-  } else if gender == "feminine" {
+  } else if gender == "f" {
     "a"
   }
   if plural {

@@ -5,7 +5,7 @@
     first_name: "Fulano",
     middle_name: none,
     last_name: "Fonseca",
-    gender: "masculine",
+    gender: "m",
   ),
   last_name_first: false,
 ) = {

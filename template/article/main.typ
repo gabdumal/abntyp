@@ -1,12 +1,12 @@
 // # Article. Artigo.
 // NBR 6022:2018
 
-#import "./data/glossary.typ": glossary_entries
+#import "./data/glossary.typ": glossaries_entries
 #import "./packages.typ": glossarium, quati-abnt
 
 // ## Glossary. Glossário.
 #show: glossarium.make-glossary
-#glossarium.register-glossary(glossary_entries)
+#glossarium.register-glossary(glossaries_entries)
 
 // ## Template. Modelo.
 #show: it => quati-abnt.article.template(

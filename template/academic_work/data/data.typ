@@ -21,13 +21,13 @@
     first_name: [Alice],
     middle_name: [de Exemplo],
     last_name: [Almeida],
-    gender: "feminine",
+    gender: "f",
   ),
   (
     first_name: [Eduardo],
     middle_name: none,
     last_name: [Exemplo],
-    gender: "masculine",
+    gender: "m",
   ),
 )
 
@@ -38,33 +38,33 @@
     first_name: [Maria],
     middle_name: [de],
     last_name: [Medeiros],
-    gender: "feminine",
+    gender: "f",
     prefix: [Prof.ª Dr.ª],
     organization: (
       name: [Universidade Federal de Juiz de Fora],
-      gender: "feminine",
+      gender: "f",
     ),
   ),
   (
     first_name: [João],
     middle_name: none,
     last_name: [Jimenez],
-    gender: "masculine",
+    gender: "m",
     prefix: [Prof. Dr.],
     organization: (
       name: [Universidade Federal de Juiz de Fora],
-      gender: "feminine",
+      gender: "f",
     ),
   ),
   (
     first_name: [Ana Paula],
     middle_name: none,
     last_name: [Andrade],
-    gender: "feminine",
+    gender: "f",
     prefix: [Prof.ª Dr.ª],
     organization: (
       name: [Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais],
-      gender: "masculine",
+      gender: "m",
     ),
   ),
 )
@@ -76,22 +76,22 @@
     first_name: [Luciano],
     middle_name: [de],
     last_name: [Lopes],
-    gender: "masculine",
+    gender: "m",
     prefix: [Prof. Dr.],
     organization: (
       name: [Universidade Federal de Minas Gerais],
-      gender: "feminine",
+      gender: "f",
     ),
   ),
   (
     first_name: [Renata],
     middle_name: none,
     last_name: [Ribeiro],
-    gender: "feminine",
+    gender: "f",
     prefix: [Prof.ª Dr.ª],
     organization: (
       name: [Universidade Federal de Juiz de Fora],
-      gender: "feminine",
+      gender: "f",
     ),
   ),
 )
@@ -100,21 +100,21 @@
 // Organização — obrigatório. Geralmente o nome da universidade.
 #let organization = (
   name: [Universidade Federal de Juiz de Fora],
-  gender: "feminine",
+  gender: "f",
 )
 
 // Institution — optional. Usually the name of the college or faculty.
 // Instituição — opcional. Geralmente o nome da faculdade ou instituto.
 #let institution = (
   name: [Instituto de Ciências Exatas],
-  gender: "masculine",
+  gender: "m",
 )
 
 // Department — optional.
 // Departamento — opcional.
 #let department = (
   name: [Departamento de Ciência da Computação],
-  gender: "masculine",
+  gender: "m",
 )
 
 // Program — semi-optional. The name of the program or course.
@@ -128,7 +128,7 @@
   (
     name: [Bacharelado em Sistemas de Informação],
     // name: [Programa de Pós-Graduação em Ciência da Computação]
-    gender: "masculine",
+    gender: "m",
   )
 }
 
@@ -137,15 +137,15 @@
 #let type_of_work = {
   (
     name: "trabalho de conclusão de curso",
-    gender: "masculine",
+    gender: "m",
   )
   //   (
   //     name: "dissertação",
-  //     gender: "feminine",
+  //     gender: "f",
   //   )
   //   (
   //     name: "tese",
-  //     gender: "feminine",
+  //     gender: "f",
   //   )
 }
 

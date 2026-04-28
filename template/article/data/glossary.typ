@@ -22,7 +22,7 @@
 #let symbols_entries = ()
 
 
-#let glossary_entries = (
+#let glossaries_entries = (
   ..abbreviations_entries,
   ..glossary_entries,
   ..symbols_entries,

@@ -12,19 +12,19 @@
   organization: {
     (
       name: "Nome da organização",
-      gender: "masculine",
+      gender: "m",
     )
   },
   institution: {
     // (
     //   name: "Nome da instituição",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   program: {
     // (
     //   name: "Nome do programa",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   authors: {
@@ -33,7 +33,7 @@
         first_name: "Fulano",
         middle_name: none,
         last_name: "Fonseca",
-        gender: "masculine",
+        gender: "m",
       ),
     )
   },

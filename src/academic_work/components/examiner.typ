@@ -10,13 +10,13 @@
     first_name: "Ciclana",
     middle_name: "de",
     last_name: "Castro",
-    gender: "feminine",
+    gender: "f",
     prefix: {
       // "Profª Drª"
     },
     organization: (
       name: "Nome da organização",
-      gender: "feminine",
+      gender: "f",
     ),
   ),
   role: {

@@ -5,25 +5,25 @@
   organization: {
     (
       name: "Nome da organização",
-      gender: "masculine",
+      gender: "m",
     )
   },
   institution: {
     // (
     //   name: "Nome da instituição",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   department: {
     // (
     //   name: "Nome do departamento",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   program: {
     // (
     //   name: "Nome do programa",
-    //   gender: "masculine",
+    //   gender: "m",
     // )
   },
   joiner: {

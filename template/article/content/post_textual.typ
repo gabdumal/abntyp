@@ -1,7 +1,7 @@
 // # Post-textual elements. Elementos pós-textuais.
 // NBR 6022:2018 5.3
 
-#import "../data/glossary.typ": glossary_entries
+#import "../data/glossary.typ": glossaries_entries
 #import "../packages.typ": (
   quati-abnt.article.components.include_acknowledgements, quati-abnt.common.components.include_annex,
   quati-abnt.common.components.include_appendix, quati-abnt.common.components.include_glossary,
@@ -11,7 +11,7 @@
 // NBR 6022:2018 5.3.2
 #include_glossary(
   disable_back_references: true,
-  glossary_entries,
+  glossaries_entries,
 )
 
 #counter(heading).update(0)
@@ -30,7 +30,7 @@
   #lorem(50)
 ]
 
-// # Acknowledgments. Agradecimentos.
+// ## Acknowledgments. Agradecimentos.
 // NBR 6022:2018 5.3.5
 #include_acknowledgements[
   #lorem(10)

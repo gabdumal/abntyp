@@ -121,7 +121,7 @@
 
 
 // ====================
-// # Dedication. Dedicatória.
+// ## Dedication. Dedicatória.
 // NBR 14724:2024 4.2.1.4, NBR 14724:2024 5.2.4
 
 // If there is not any dedication, you can just remove the following block.
@@ -136,7 +136,7 @@
 
 
 // ====================
-// # Acknowledgments. Agradecimentos.
+// ## Acknowledgments. Agradecimentos.
 // NBR 14724:2024 4.2.1.6
 
 // If there is not any acknowledgments, you can just remove the following block.
@@ -151,7 +151,7 @@
 
 
 // ====================
-// # Epigraph. Epígrafe.
+// ## Epigraph. Epígrafe.
 // NBR 14724:2024 4.2.1.6
 
 // If there is not any epigraph, you can just remove the following block.
