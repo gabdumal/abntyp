@@ -9,7 +9,7 @@
 #import "../../components/examiner.typ": print_examiner
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/nature.typ": print_nature
-#import "../../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 #import "../../components/people.typ": print_people
 #import "../../util/advisors.typ": get_advisor_role
 
@@ -200,7 +200,7 @@
         }
       ]
 
-      #if not consider_only_odd_pages.get() {
+      #if not should_consider_only_odd_pages.get() {
         pagebreak(weak: true, to: "odd")
       }
     ],

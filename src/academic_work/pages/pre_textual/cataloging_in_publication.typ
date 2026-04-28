@@ -6,7 +6,9 @@
 #import "../../../common/util/text.typ": capitalize_first_letter
 #import "../../util/advisors.typ": get_advisor_role
 #import "../../components/heading.typ": not_start_on_new_page
-#import "../../components/page.typ": consider_only_odd_pages, not_count_page, not_number_page, quantity_of_counted_pages
+#import "../../components/page.typ": (
+  not_count_page, not_number_page, quantity_of_counted_pages, should_consider_only_odd_pages,
+)
 #import "../../components/people.typ": print_people, print_person
 
 #let parameters = (
@@ -123,7 +125,7 @@
     #year.
 
     #context { quantity_of_counted_pages.final() }
-    #if consider_only_odd_pages.get() [f.] else [p.]
+    #if should_consider_only_odd_pages.get() [f.] else [p.]
     #if (counter(figure.where(kind: image)).final().first() > 0) [: il.]
     #parbreak()#linebreak()
 
@@ -191,7 +193,7 @@
 ) = context {
   not_number_page(
     not_start_on_new_page()[
-      #if consider_only_odd_pages.get() {
+      #if should_consider_only_odd_pages.get() {
         not_count_page(
           page_definitions(
             authors: authors,

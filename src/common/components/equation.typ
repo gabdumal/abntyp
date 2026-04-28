@@ -1,15 +1,15 @@
 // # Equation. Equação.
 // NBR 14724:2024 5.7
 
-#import "../style/style.typ": font_family_math_text
+#import "../util/font_family.typ": font_family_for_math_text_state
 
 #let equation(
   placement: none,
   width: auto,
   body,
-) = {
+) = context {
   set text(
-    font: font_family_math_text,
+    font: font_family_for_math_text_state.get(),
   )
   set math.equation(numbering: "(1.1)")
 

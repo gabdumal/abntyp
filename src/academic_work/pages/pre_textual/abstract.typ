@@ -3,7 +3,7 @@
 
 #import "../../../common/components/abstract.typ": include_abstract
 #import "../../components/heading.typ": not_start_on_new_page
-#import "../../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 
 #let include_abstract_page(
   keywords_title: { "Palavras-chave" },
@@ -28,7 +28,7 @@
         )
       ]
 
-      #if not consider_only_odd_pages.get() {
+      #if not should_consider_only_odd_pages.get() {
         pagebreak(weak: true, to: "odd")
       }
     ],

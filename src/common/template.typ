@@ -1,23 +1,42 @@
+// # Template. Modelo.
+
 #import "./components/bibliography.typ": format_bibliography
-#import "./components/editor_note.typ": should_display_editor_notes as should_display_editor_notes_state
+#import "./components/editor_note.typ": should_display_editor_notes_state
 #import "./components/figure.typ": figure_with_spacing_around
 #import "./components/footnote.typ": format_footnote_entry
 #import "./components/heading.typ": format_heading
 #import "./components/quote.typ": format_quote
+
 #import "./style/style.typ": (
-  font_family_math, font_family_mono, font_family_serif, font_size_for_common_text, indentation_for_paragraphs,
-  indentation_for_subparagraphs, leading_for_common_text, paper_size, simple_leading_for_smaller_text,
-  simple_spacing_for_smaller_text, spacing_for_common_text,
+  font_size_for_common_text, indentation_for_paragraphs, indentation_for_subparagraphs, leading_for_common_text,
+  paper_size, simple_leading_for_smaller_text, simple_spacing_for_smaller_text, spacing_for_common_text,
+)
+
+#import "./util/font_family.typ": (
+  font_family_for_common_text_state, font_family_for_editor_notes_state, font_family_for_highlighted_text_state,
+  font_family_for_math_text_state, font_family_for_monospaced_text_state, font_family_math, font_family_mono,
+  font_family_sans, font_family_serif,
 )
 
 #let template(
   doc,
   // Color to format links.
   color_of_links: none,
+  // Font families.
+  font_family_for_common_text: font_family_serif,
+  font_family_for_highlighted_text: font_family_sans,
+  font_family_for_math_text: font_family_math,
+  font_family_for_monospaced_text: font_family_mono,
+  font_family_for_editor_notes: font_family_sans,
   // Whether to display editor notes.
   should_display_editor_notes: true,
 ) = {
   should_display_editor_notes_state.update(should_display_editor_notes)
+  font_family_for_common_text_state.update(font_family_for_common_text)
+  font_family_for_highlighted_text_state.update(font_family_for_highlighted_text)
+  font_family_for_math_text_state.update(font_family_for_math_text)
+  font_family_for_monospaced_text_state.update(font_family_for_monospaced_text)
+  font_family_for_editor_notes_state.update(font_family_for_editor_notes)
 
   // ## Page. Página.
   set page(
@@ -28,12 +47,12 @@
   set text(
     lang: "pt",
     region: "br",
-    font: font_family_serif,
+    font: font_family_for_common_text,
     size: font_size_for_common_text,
     hyphenate: true,
   )
-  show raw: set text(font: font_family_mono)
-  show math.equation: set text(font: font_family_math)
+  show raw: set text(font: font_family_for_monospaced_text)
+  show math.equation: set text(font: font_family_for_math_text)
 
   // ## Paragraphs. Parágrafos.
   set par(

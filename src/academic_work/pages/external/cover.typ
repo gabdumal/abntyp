@@ -5,7 +5,7 @@
 #import "../../../common/style/style.typ": font_family_sans
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/institutional_information.typ": print_institutional_information
-#import "../../components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
+#import "../../components/page.typ": not_count_page, not_number_page, should_consider_only_odd_pages
 #import "../../components/people.typ": print_people
 
 #let include_cover(
@@ -97,7 +97,7 @@
           #year
         ]
 
-        #if not consider_only_odd_pages.get() {
+        #if not should_consider_only_odd_pages.get() {
           pagebreak(weak: true, to: "odd")
         }
       ],

@@ -1,11 +1,21 @@
 #import "../common/components/heading.typ": format_heading
 #import "../common/style/style.typ": margin_bottom, margin_end, margin_start, margin_top
 #import "../common/template.typ": template as common_template
+#import "../common/util/font_family.typ": font_family_math, font_family_mono, font_family_sans, font_family_serif
 
 #let template(
   doc,
+  // Color to format links.
   color_of_links: none,
+  // Font families.
+  font_family_for_common_text: font_family_serif,
+  font_family_for_highlighted_text: font_family_serif,
+  font_family_for_math_text: font_family_math,
+  font_family_for_monospaced_text: font_family_mono,
+  font_family_for_editor_notes: font_family_sans,
+  // Whether to number pages and print its number on the header.
   should_number_pages: true,
+  // Whether to display editor notes.
   should_display_editor_notes: true,
 ) = {
   // ## Page. Página.
@@ -41,6 +51,11 @@
   common_template(
     doc,
     color_of_links: color_of_links,
+    font_family_for_common_text: font_family_for_common_text,
+    font_family_for_highlighted_text: font_family_for_highlighted_text,
+    font_family_for_math_text: font_family_for_math_text,
+    font_family_for_monospaced_text: font_family_for_monospaced_text,
+    font_family_for_editor_notes: font_family_for_editor_notes,
     should_display_editor_notes: should_display_editor_notes,
   )
 }

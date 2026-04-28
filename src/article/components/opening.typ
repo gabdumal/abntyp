@@ -3,6 +3,7 @@
 
 #import "../../common/components/title.typ": print_title
 #import "../../common/style/style.typ": leading_for_common_text, spacing_for_common_text
+#import "../../common/util/font_family.typ": font_family_for_common_text_state, font_family_for_highlighted_text_state
 
 #let print_person(
   person: (
@@ -18,9 +19,12 @@
   }
   (
     person.last_name
-      + footnote(
-        numbering: "*",
-        person.curriculum,
+      + text(
+        font: font_family_for_common_text_state.get(),
+        footnote(
+          numbering: "*",
+          person.curriculum,
+        ),
       )
   )
 }
@@ -43,7 +47,10 @@
   subtitle: {
     // "Subtítulo do trabalho"
   },
-) => {
+) => context {
+  set text(
+    font: font_family_for_highlighted_text_state.get(),
+  )
   set par(
     first-line-indent: 0pt,
   )

@@ -7,7 +7,7 @@ Compose documents according to ABNT standards.
 Create a new project using this template using the following command when running typst locally, or by selecting the template on the Typst web app.
 
 ```bash
-typst init @preview/quati-abnt:0.0.3
+typst init @preview/quati-abnt:0.0.4
 ```
 
 This will create two folders: `article`, intended for scientific papers, and `academic_work`, intended for dissertations, theses, and monographs.
@@ -29,7 +29,7 @@ After that, select the `main.typ` file of the desired template to render the doc
 On the `/packages.typ` file inside each template folder, you will find the importing of the `quati-abnt` package.
 
 ```typst
-#import "@preview/quati-abnt:0.0.3" as quati-abnt
+#import "@preview/quati-abnt:0.0.4" as quati-abnt
 ```
 
 ## Paper template
@@ -64,7 +64,7 @@ This file initializes the template, offering options to configure it.
 ### Packages
 
 Still on the root folder, you can include more Typst packages on the `/packages.typ` file.
-This template depends on these packages, which are already re-exported to your project: `equate`; `glossarium`; and `subpar`.
+This template depends on these packages, which are already re-exported to your project: `glossarium`; and `subpar`.
 
 ### Components
 

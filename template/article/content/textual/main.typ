@@ -1,9 +1,11 @@
-#import "../../components.typ": describe_figure, note_from_alice, note_from_eduardo, todo_note
+#import "../../components.typ": describe_figure, equation, note_from_alice, note_from_eduardo, todo_note
 #import "../../util.typ": get_term
 
 = Introdução <secao:introducao>
 
 Esta é a @secao:introducao, de introdução.
+
+== Citação
 
 #quote(
   attribution: [
@@ -17,6 +19,8 @@ Esta é a @secao:introducao, de introdução.
   Creio mesmo que pensaram que eu era doido.
   Alguns meses depois, o "Brasil", com grande espanto de todos os entendidos, atravessava Paris, lindo na sua transparência, como uma grande bola de sabão
 ]
+
+== Ilustração
 
 #describe_figure(
   sticky: true,
@@ -35,10 +39,14 @@ Esta é a @secao:introducao, de introdução.
 
 #lorem(50)
 
+== Nota de rodapé
+
 Exemplo de nota de rodapé
 #footnote[
   #lorem(10)
 ].
+
+== Nota de editor
 
 #note_from_alice()[
   Nota da Alice.
@@ -46,4 +54,32 @@ Exemplo de nota de rodapé
 
 #note_from_eduardo(note: todo_note)[
   Nota de afazeres do Eduardo.
+]
+
+== Texto mono-espaçado
+
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnam
+aliquam quaerat voluptatem.
+```
+
+== Equações
+
+#describe_figure(
+  // placement: auto,
+)[
+  #figure(
+    supplement: "Esquema",
+    kind: "scheme",
+    caption: [
+      Soma entre dois números.
+    ],
+  )[
+    #equation(
+      width: 40%,
+    )[
+      $ 1 + 1 = 2 $ <equacao:sum_1>
+    ]
+  ]
 ]

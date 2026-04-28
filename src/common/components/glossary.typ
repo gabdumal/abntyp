@@ -10,7 +10,7 @@
   outlined: true,
   title: "Glossário",
   entries,
-) = {
+) = context {
   let arguments = (
     deduplicate-back-references: true,
     description-separator: ". ",

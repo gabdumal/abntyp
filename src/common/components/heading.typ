@@ -1,5 +1,6 @@
 // # Headings. Títulos.
 
+#import "../../common/util/font_family.typ": font_family_for_highlighted_text_state
 #import "../style/style.typ": (
   font_size_for_common_text, font_size_for_level_1_headings, font_size_for_level_2_headings,
   font_size_for_level_3_and_beyond_headings, leading_for_level_1_headings, leading_for_level_2_headings,
@@ -50,6 +51,10 @@
   body,
 ) = {
   // NBR 14724:2024 5.2.2.
+
+  set text(
+    font: font_family_for_highlighted_text_state.get(),
+  )
 
   let (
     capitalize,

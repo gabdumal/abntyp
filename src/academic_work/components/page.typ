@@ -5,7 +5,7 @@
 #let should_number_this_page = state("quati_abnt_should_number_this_page", true)
 #let should_count_this_page = state("quati_abnt_should_count_this_page", true)
 
-#let consider_only_odd_pages = state("quati_abnt_consider_only_odd_pages", true)
+#let should_consider_only_odd_pages = state("quati_abnt_should_consider_only_odd_pages", true)
 
 #let quantity_of_counted_pages = state("quati_abnt_quantity_of_counted_pages", 0)
 
@@ -25,7 +25,9 @@
   should_count_this_page.update(true)
 }
 
-#let format_header(should_number_pages) = context {
+#let format_header(
+  should_number_pages: true,
+) = context {
   // Regress page counter if this page should not be counted
   let actual_page_number = here().page()
   let page_number_to_display = quantity_of_counted_pages.get()
@@ -39,7 +41,7 @@
 
   // NBR 14724:2024 5.3
   // Numbering should be on the right for odd pages and on the left for even pages.
-  let alignment = if consider_only_odd_pages.get() {
+  let alignment = if should_consider_only_odd_pages.get() {
     end
   } else {
     if calc.rem(actual_page_number, 2) == 1 {

@@ -1,8 +1,9 @@
 // # Note. Nota.
 
-#import "../style/style.typ": font_family_sans, simple_spacing_for_smaller_text
+#import "../style/style.typ": simple_spacing_for_smaller_text
+#import "../util/font_family.typ": font_family_for_editor_notes_state
 
-#let should_display_editor_notes = state("quati_abnt_should_display_editor_notes", true)
+#let should_display_editor_notes_state = state("quati_abnt_should_display_editor_notes", true)
 
 #let color_of_fill_of_notes = oklch(100%, 0, 90deg)
 #let paint_of_stroke_of_notes = oklch(80.78%, 0, 0deg)
@@ -141,9 +142,9 @@
   stroke: none,
   it,
 ) = context {
-  if (should_display_editor_notes.get() == true) {
+  if (should_display_editor_notes_state.get() == true) {
     set text(
-      font: font_family_sans,
+      font: font_family_for_editor_notes_state.get(),
     )
     set par(first-line-indent: 0pt)
     block(

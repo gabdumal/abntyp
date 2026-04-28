@@ -3,7 +3,7 @@
 
 #import "../../components/epigraph.typ": include_epigraph
 #import "../../components/heading.typ": not_start_on_new_page
-#import "../../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 
 // NBR 14724:2024 4.2.1.6, NBR 14724:2024 5.2.4, NBR 14724:2024 5.5
 // Epigraph on pre-textual elements can present a quote without following long quote formatting, as determined by NBR 14724:2024 4.2.1.6.
@@ -26,7 +26,7 @@
         }),
       )
 
-      #if not consider_only_odd_pages.get() {
+      #if not should_consider_only_odd_pages.get() {
         pagebreak(weak: true, to: "odd")
       }
     ],

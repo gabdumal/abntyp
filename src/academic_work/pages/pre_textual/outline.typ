@@ -4,7 +4,7 @@
 #import "../../../common/style/style.typ": font_family_sans
 #import "../../../common/components/heading.typ": get_styling_for_heading
 #import "../../components/heading.typ": not_start_on_new_page
-#import "../../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 
 #let include_outline_page() = context {
   set text(
@@ -61,7 +61,7 @@
         )
       ]
 
-      #if not consider_only_odd_pages.get() {
+      #if not should_consider_only_odd_pages.get() {
         pagebreak(weak: true, to: "odd")
       }
     ],

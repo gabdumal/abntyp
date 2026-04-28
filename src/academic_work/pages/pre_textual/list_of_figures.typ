@@ -3,7 +3,7 @@
 
 #import "../../components/heading.typ": not_start_on_new_page
 #import "../../components/list_of_figures.typ": include_list_of_figures
-#import "../../components/page.typ": consider_only_odd_pages, not_number_page
+#import "../../components/page.typ": not_number_page, should_consider_only_odd_pages
 
 #let include_list_of_figures_page() = context {
   not_number_page(
@@ -12,7 +12,7 @@
         #include_list_of_figures()
       ]
 
-      #if not consider_only_odd_pages.get() {
+      #if not should_consider_only_odd_pages.get() {
         pagebreak(weak: true, to: "odd")
       }
     ],

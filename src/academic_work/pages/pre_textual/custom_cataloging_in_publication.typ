@@ -3,7 +3,7 @@
 
 #import "../../../common/style/style.typ": font_family_sans
 #import "../../components/heading.typ": not_start_on_new_page
-#import "../../components/page.typ": consider_only_odd_pages, not_count_page, not_number_page
+#import "../../components/page.typ": not_count_page, not_number_page, should_consider_only_odd_pages
 
 #let include_custom_cataloging_in_publication(
   body,
@@ -12,7 +12,7 @@
   set text(font: font_family_sans)
   not_number_page(
     not_start_on_new_page()[
-      #if consider_only_odd_pages.get() {
+      #if should_consider_only_odd_pages.get() {
         not_count_page(
           body,
         )
