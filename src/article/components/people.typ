@@ -10,19 +10,18 @@
     curriculum: [E-mail: #link("mailto:fulano@email.com").],
   ),
 ) = context {
-  person.first_name + sym.space
+  person.first_name
   if person.middle_name != none {
-    person.middle_name + sym.space
+    sym.space + person.middle_name
   }
-  (
-    person.last_name
-      + text(
-        font: font_family_for_common_text_state.get(),
-        footnote(
-          numbering: "*",
-          person.curriculum,
-        ),
-      )
+  sym.space
+  person.last_name
+  text(
+    font: font_family_for_common_text_state.get(),
+    footnote(
+      numbering: "*",
+      person.curriculum,
+    ),
   )
 }
 

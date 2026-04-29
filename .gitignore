@@ -1,3 +1,5 @@
 /.direnv/
 /build/
 /target/
+
+**/*.pdf

@@ -16,10 +16,11 @@
       sym.space + person.middle_name
     }
   } else {
-    person.first_name + sym.space
+    person.first_name
     if person.middle_name != none {
-      person.middle_name + sym.space
+      sym.space + person.middle_name
     }
+    sym.space
     person.last_name
   }
 }
