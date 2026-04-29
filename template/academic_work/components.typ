@@ -1,7 +1,8 @@
 // # Components. Componentes.
 
 #import "./packages.typ": (
-  quati-abnt.academic_work.components.include_epigraph, quati-abnt.common.components.cite_prose,
+  quati-abnt.academic_work.components.include_epigraph, quati-abnt.academic_work.components.print_people,
+  quati-abnt.academic_work.components.print_person, quati-abnt.common.components.cite_prose,
   quati-abnt.common.components.create_status_note, quati-abnt.common.components.describe_figure,
   quati-abnt.common.components.done_note, quati-abnt.common.components.editor_note,
   quati-abnt.common.components.equation, quati-abnt.common.components.format_table,
