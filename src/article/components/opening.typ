@@ -8,30 +8,7 @@
 )
 #import "../../common/template.typ": should_use_larger_text_to_highlight_state
 #import "../../common/util/font_family.typ": font_family_for_common_text_state, font_family_for_highlighted_text_state
-
-#let print_person(
-  person: (
-    first_name: "Fulano",
-    middle_name: none,
-    last_name: "Fonseca",
-    curriculum: "",
-  ),
-) = context {
-  person.first_name + sym.space
-  if person.middle_name != none {
-    person.middle_name + sym.space
-  }
-  (
-    person.last_name
-      + text(
-        font: font_family_for_common_text_state.get(),
-        footnote(
-          numbering: "*",
-          person.curriculum,
-        ),
-      )
-  )
-}
+#import "./people.typ": print_people
 
 #let include_opening = (
   authors: {
@@ -40,7 +17,7 @@
         first_name: "Fulano",
         middle_name: none,
         last_name: "Fonseca",
-        curriculum: "",
+        curriculum: [E-mail: #link("mailto:fulano@email.com").],
       ),
     )
   },
@@ -97,17 +74,7 @@
   ]
 
   align(right)[
-    #(
-      authors
-        .map(
-          person => print_person(
-            person: person,
-          ),
-        )
-        .join(
-          linebreak(),
-        )
-    )
+    #print_people(people: authors)
   ]
   parbreak()
 

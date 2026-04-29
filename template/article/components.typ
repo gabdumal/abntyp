@@ -1,12 +1,13 @@
 // # Components. Componentes.
 
 #import "./packages.typ": (
-  quati-abnt.common.components, quati-abnt.common.components.cite_prose,
-  quati-abnt.common.components.closed_discussion_note, quati-abnt.common.components.create_status_note,
-  quati-abnt.common.components.describe_figure, quati-abnt.common.components.done_note,
-  quati-abnt.common.components.editor_note, quati-abnt.common.components.equation,
-  quati-abnt.common.components.format_table, quati-abnt.common.components.open_discussion_note,
-  quati-abnt.common.components.progress_note, quati-abnt.common.components.todo_note,
+  quati-abnt.article.components.print_people, quati-abnt.article.components.print_person,
+  quati-abnt.common.components.cite_prose, quati-abnt.common.components.closed_discussion_note,
+  quati-abnt.common.components.create_status_note, quati-abnt.common.components.describe_figure,
+  quati-abnt.common.components.done_note, quati-abnt.common.components.editor_note,
+  quati-abnt.common.components.equation, quati-abnt.common.components.format_table,
+  quati-abnt.common.components.open_discussion_note, quati-abnt.common.components.progress_note,
+  quati-abnt.common.components.todo_note,
 )
 
 // ## Note. Nota.
